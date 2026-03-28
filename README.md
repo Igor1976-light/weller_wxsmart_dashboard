@@ -1,8 +1,47 @@
 # WXsmart Workspace
 
+Dieses Projekt dient zur Erfassung und grafischen Darstellung der von einer **Weller WX SMART Power Unit** gesendeten MQTT-Daten.
+Der aktuelle Stand umfasst einen bestehenden CLI-Monitor sowie ein Browser-Dashboard, das die empfangenen Live-Daten grafisch aufbereitet.
+
+## Zweck
+
+- Live-Monitoring der von der Weller WX SMART Power Unit gesendeten MQTT-Daten
+- grafische Anzeige im Browser für Temperatur, Power, Counter, Status und weitere Stationsdaten
+- technische Analyse und Fehlersuche bei MQTT-Kommunikation und Stationstelemetrie
+
+## Unterstützte Plattformen
+
+Die Software ist grundsätzlich für diese Plattformen geeignet:
+
+- **macOS**
+- **Linux**
+- **Windows**
+
+Voraussetzung ist jeweils eine Python-Umgebung sowie ein erreichbarer MQTT-Broker.
+Das Browser-Dashboard selbst ist plattformunabhängig und läuft im Webbrowser.
+
+## Voraussetzungen
+
+Für den Betrieb werden zusätzlich benötigt:
+
+- **Python 3.11+** (empfohlen: virtuelle Umgebung)
+- **MQTT-Broker** mit passender Konfiguration
+  - z. B. **Mosquitto**
+  - bei Nutzung der WX SMART typischerweise mit **WebSocket-Unterstützung** auf dem konfigurierten Port
+- **Python-Pakete** aus `requirements.txt`
+- optional ein moderner Browser für das Live-Dashboard
+
+Typischer Aufbau:
+
+- Weller WX SMART Power Unit sendet MQTT-Daten
+- MQTT-Broker nimmt die Daten entgegen
+- dieses Projekt liest die Daten ein und stellt sie im Browser dar
+
+## Projektaufbau
+
 Dieses Repository enthält aktuell zwei Ebenen:
 
-- `wxsmart_2.py`: bestehender CLI-Monitor (laufender Produktions-/Testpfad)
+- `wxsmart.py`: bestehender CLI-Monitor (laufender Produktions-/Testpfad)
 - `app/`: neuer Startpunkt für das kommende Browser-Dashboard (FastAPI + MQTT Ingest)
 
 ## Struktur
@@ -59,7 +98,7 @@ MQTT_HOST=<broker-ip-oder-hostname> MQTT_PORT=9001 uvicorn app.main:app --host 1
 
 ## Hinweis
 
-`wxsmart_2.py` bleibt unverändert nutzbar. Die neue `app/`-Struktur ist der Einstieg für das spätere Browser-Dashboard.
+`wxsmart.py` ist der CLI-Monitor für den direkten MQTT-Betrieb. Die `app/`-Struktur enthält die API- und Dashboard-Komponenten für den Browserbetrieb.
 
 ### Live-Update ohne Reload
 

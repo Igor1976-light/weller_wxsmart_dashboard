@@ -7,7 +7,7 @@ LOG_FILE="${1:-wxsmart_messages.log}"
 
 if [ ! -f "$LOG_FILE" ]; then
     echo "❌ Log-Datei nicht gefunden: $LOG_FILE"
-    echo "Starte zuerst den Monitor mit: python wxsmart_2.py"
+    echo "Starte zuerst den Monitor mit: python wxsmart.py"
     exit 1
 fi
 

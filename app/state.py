@@ -12,7 +12,11 @@ class ToolState:
     temperature_c: float | None = None
     power_raw: str | None = None
     power_w: float | None = None
+    power_updated_at: str | None = None  # nur beim Power-Topic gesetzt
+    standby_raw: str | None = None
+    standby_updated_at: str | None = None
     counter_time: str | None = None
+    counter_updated_at: str | None = None  # nur beim Counter/Time-Topic gesetzt – Heartbeat
     serial_number: str | None = None
     state: str | None = None
     updated_at: str | None = None
@@ -89,12 +93,18 @@ class StateStore:
                 tool.power_raw = payload_value
                 if payload_value.isdigit():
                     tool.power_w = int(payload_value) / 10.0
+                tool.power_updated_at = self._now()
             elif "/Power" in topic:
                 tool.power_raw = payload_value
                 if payload_value.isdigit():
                     tool.power_w = float(payload_value)
+                tool.power_updated_at = self._now()
+            elif "/OperatingHours/Standby" in topic:
+                tool.standby_raw = payload_value
+                tool.standby_updated_at = self._now()
             elif "/Counter/Time" in topic:
                 tool.counter_time = payload_value
+                tool.counter_updated_at = self._now()
             elif "/SerialNumber" in topic:
                 tool.serial_number = payload_value
             elif topic.endswith("/State"):

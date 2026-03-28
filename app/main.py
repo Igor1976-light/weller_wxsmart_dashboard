@@ -32,7 +32,14 @@ app.include_router(create_api_router(state_store))
 
 @app.get("/")
 def dashboard_index() -> FileResponse:
-    return FileResponse(INDEX_FILE)
+    return FileResponse(
+        INDEX_FILE,
+        headers={
+            "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+            "Pragma": "no-cache",
+            "Expires": "0",
+        },
+    )
 
 
 @app.websocket("/ws/live")

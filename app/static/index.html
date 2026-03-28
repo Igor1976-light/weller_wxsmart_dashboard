@@ -16,7 +16,9 @@
         --warn: #f1c40f;
         --bad: #e74c3c;
       }
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
       body {
         margin: 0;
         padding: 24px;
@@ -24,15 +26,27 @@
         background: radial-gradient(circle at top, #13203a, var(--bg));
         color: var(--text);
       }
-      h1 { margin: 0 0 8px; font-size: 1.5rem; }
-      .sub { color: var(--muted); margin-bottom: 20px; }
-      .status { display: inline-flex; align-items: center; gap: 8px; }
-      .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--bad); }
-      .dot.ok { background: var(--ok); }
-      .grid {
-        display: grid;
-        gap: 14px;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      h1 {
+        margin: 0 0 8px;
+        font-size: 1.5rem;
+      }
+      .sub {
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--bad);
+      }
+      .dot.ok {
+        background: var(--ok);
       }
       .card {
         background: var(--card);
@@ -40,13 +54,105 @@
         border-radius: 12px;
         padding: 14px;
       }
-      .card h2 { margin: 0 0 10px; font-size: 1.1rem; }
-      .row { display: flex; justify-content: space-between; gap: 10px; margin: 8px 0; }
-      .k { color: var(--muted); }
-      .v { text-align: right; font-variant-numeric: tabular-nums; }
-      .temp { font-size: 1.3rem; font-weight: 700; }
-      .foot { margin-top: 16px; color: var(--muted); font-size: 0.9rem; }
-      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 8px 0;
+      }
+      .k {
+        color: var(--muted);
+      }
+      .v {
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
+      .temp {
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+      .foot {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+      .tab-btn {
+        border: 1px solid var(--card-border);
+        background: #1a2742;
+        color: var(--text);
+        padding: 8px 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .tab-btn.active {
+        background: #2a3b63;
+        border-color: #3a5490;
+      }
+      .tab-btn.online {
+        background: #1f4a33;
+        border-color: #2ecc71;
+      }
+      .tab-btn.online.active {
+        background: #276043;
+      }
+      .tab-btn.offline {
+        background: #4a2020;
+        border-color: #e74c3c;
+      }
+      .tab-btn.offline.active {
+        background: #5a2929;
+      }
+
+      .tab-pane {
+        display: none;
+      }
+      .tab-pane.active {
+        display: block;
+      }
+
+      .log-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-height: 430px;
+        overflow: auto;
+      }
+      .log-item {
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        padding: 8px 10px;
+        background: #10182a;
+      }
+      .log-meta {
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      .log-topic {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.9rem;
+        margin-top: 3px;
+      }
+      .log-value {
+        margin-top: 4px;
+      }
     </style>
   </head>
   <body>
@@ -55,46 +161,140 @@
       <span class="status"><span id="wsDot" class="dot"></span><span id="wsText">Verbinde…</span></span>
     </div>
 
-    <div class="grid">
-      <section class="card" id="stationCard">
-        <h2>Station</h2>
-        <div class="row"><span class="k">Online</span><span id="stationOnline" class="v">-</span></div>
-        <div class="row"><span class="k">Firmware</span><span id="stationFirmware" class="v">-</span></div>
-        <div class="row"><span class="k">Device Name</span><span id="stationDevice" class="v">-</span></div>
-        <div class="row"><span class="k">UTC</span><span id="stationUtc" class="v mono">-</span></div>
-        <div class="row"><span class="k">Aktualisiert</span><span id="stationUpdated" class="v mono">-</span></div>
-      </section>
-
-      <section class="card" id="tool1Card">
-        <h2>Tool 1</h2>
-        <div class="row"><span class="k">Temperatur</span><span id="tool1Temp" class="v temp">-</span></div>
-        <div class="row"><span class="k">Power</span><span id="tool1Power" class="v">-</span></div>
-        <div class="row"><span class="k">Counter Time</span><span id="tool1Counter" class="v">-</span></div>
-        <div class="row"><span class="k">Serial</span><span id="tool1Serial" class="v mono">-</span></div>
-        <div class="row"><span class="k">State</span><span id="tool1State" class="v">-</span></div>
-      </section>
-
-      <section class="card" id="tool2Card">
-        <h2>Tool 2</h2>
-        <div class="row"><span class="k">Temperatur</span><span id="tool2Temp" class="v temp">-</span></div>
-        <div class="row"><span class="k">Power</span><span id="tool2Power" class="v">-</span></div>
-        <div class="row"><span class="k">Counter Time</span><span id="tool2Counter" class="v">-</span></div>
-        <div class="row"><span class="k">Serial</span><span id="tool2Serial" class="v mono">-</span></div>
-        <div class="row"><span class="k">State</span><span id="tool2State" class="v">-</span></div>
-      </section>
+    <div class="tabs" role="tablist" aria-label="Dashboard Tabs">
+      <button class="tab-btn active" data-tab="station" role="tab" aria-selected="true">Station</button>
+      <button class="tab-btn" data-tab="tool1" role="tab" aria-selected="false">Tool1</button>
+      <button class="tab-btn" data-tab="tool2" role="tab" aria-selected="false">Tool2</button>
+      <button class="tab-btn" data-tab="log" role="tab" aria-selected="false">Log</button>
     </div>
 
-    <div class="foot">
-      Nachrichten gesamt: <span id="msgCount" class="mono">0</span> ·
-      Letztes Topic: <span id="lastTopic" class="mono">-</span>
-    </div>
+    <section class="card tab-pane active" data-pane="station">
+      <h2>Station</h2>
+      <div class="row"><span class="k">Online</span><span id="stationOnline" class="v">-</span></div>
+      <div class="row"><span class="k">Firmware</span><span id="stationFirmware" class="v">-</span></div>
+      <div class="row"><span class="k">Device Name</span><span id="stationDevice" class="v">-</span></div>
+      <div class="row"><span class="k">UTC</span><span id="stationUtc" class="v mono">-</span></div>
+      <div class="row"><span class="k">Aktualisiert</span><span id="stationUpdated" class="v mono">-</span></div>
+    </section>
+
+    <section class="card tab-pane" data-pane="tool1">
+      <h2>Tool 1</h2>
+      <div class="row"><span class="k">Temperatur</span><span id="tool1Temp" class="v temp">-</span></div>
+      <div class="row"><span class="k">Power</span><span id="tool1Power" class="v">-</span></div>
+      <div class="row"><span class="k">Counter Time</span><span id="tool1Counter" class="v">-</span></div>
+      <div class="row"><span class="k">Serial</span><span id="tool1Serial" class="v mono">-</span></div>
+      <div class="row"><span class="k">State</span><span id="tool1State" class="v">-</span></div>
+    </section>
+
+    <section class="card tab-pane" data-pane="tool2">
+      <h2>Tool 2</h2>
+      <div class="row"><span class="k">Temperatur</span><span id="tool2Temp" class="v temp">-</span></div>
+      <div class="row"><span class="k">Power</span><span id="tool2Power" class="v">-</span></div>
+      <div class="row"><span class="k">Counter Time</span><span id="tool2Counter" class="v">-</span></div>
+      <div class="row"><span class="k">Serial</span><span id="tool2Serial" class="v mono">-</span></div>
+      <div class="row"><span class="k">State</span><span id="tool2State" class="v">-</span></div>
+    </section>
+
+    <section class="card tab-pane" data-pane="log">
+      <h2>Log</h2>
+      <ul id="logList" class="log-list"></ul>
+      <div class="foot">Zeigt die letzten Live-Updates (max. 50).</div>
+    </section>
 
     <script>
       const byId = (id) => document.getElementById(id);
+      const logItems = [];
+
       const toText = (value, fallback = "-") => {
         if (value === null || value === undefined || value === "") return fallback;
         return String(value);
       };
+
+      function setActiveTab(tabName) {
+        document.querySelectorAll(".tab-btn").forEach((button) => {
+          const isActive = button.dataset.tab === tabName;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-selected", isActive ? "true" : "false");
+        });
+
+        document.querySelectorAll(".tab-pane").forEach((pane) => {
+          pane.classList.toggle("active", pane.dataset.pane === tabName);
+        });
+      }
+
+      function isFreshTimestamp(timestampText, maxAgeSeconds = 20) {
+        if (!timestampText) {
+          return false;
+        }
+        const parsed = new Date(timestampText);
+        if (Number.isNaN(parsed.getTime())) {
+          return false;
+        }
+        const ageMs = Date.now() - parsed.getTime();
+        return ageMs >= 0 && ageMs <= maxAgeSeconds * 1000;
+      }
+
+      function updateToolTabStatus(toolTabName, isOnline, hasEverSentData) {
+        const button = document.querySelector(`.tab-btn[data-tab="${toolTabName}"]`);
+        if (!button) {
+          return;
+        }
+        button.classList.remove("online", "offline");
+        if (isOnline) {
+          button.classList.add("online");
+        } else if (hasEverSentData) {
+          // War mal aktiv, ist jetzt weg → rot
+          button.classList.add("offline");
+        }
+        // Noch nie Daten geliefert → neutral (kein Farbklasse)
+      }
+
+      function initTabs() {
+        document.querySelectorAll(".tab-btn").forEach((button) => {
+          button.addEventListener("click", () => setActiveTab(button.dataset.tab));
+        });
+        setActiveTab("station");
+      }
+
+      function renderLog() {
+        const list = byId("logList");
+        list.innerHTML = "";
+        for (const entry of logItems) {
+          const item = document.createElement("li");
+          item.className = "log-item";
+          item.innerHTML = `
+            <div class="log-meta">${entry.time}</div>
+            <div class="log-topic">${entry.topic}</div>
+            <div class="log-value">${entry.value}</div>
+          `;
+          list.appendChild(item);
+        }
+      }
+
+      function pushLog(data) {
+        const now = new Date();
+        const timeText = now.toLocaleTimeString("de-DE", { hour12: false });
+        const topic = toText(data.last_topic);
+        const value = toText(data.last_payload);
+        if (topic === "-" && value === "-") {
+          return;
+        }
+
+        const previous = logItems[0];
+        if (previous && previous.topic === topic && previous.value === value) {
+          return;
+        }
+
+        logItems.unshift({
+          time: timeText,
+          topic,
+          value,
+        });
+        if (logItems.length > 50) {
+          logItems.length = 50;
+        }
+        renderLog();
+      }
 
       function renderTool(prefix, tool) {
         const temp = tool?.temperature_c;
@@ -118,8 +318,29 @@
         renderTool("tool1", tools.Tool1 || {});
         renderTool("tool2", tools.Tool2 || {});
 
-        byId("msgCount").textContent = toText(data.message_count, "0");
-        byId("lastTopic").textContent = toText(data.last_topic);
+        const stationOnline = String(station.online || "").toUpperCase() === "ONLINE";
+        const tool1 = tools?.Tool1 || {};
+        const tool2 = tools?.Tool2 || {};
+
+        // Tool gilt als an, wenn die Station frische Aktivitäts-Topics sendet.
+        // Auf diesem Gerät ist das zuverlässig über `Power`; falls vorhanden,
+        // akzeptieren wir zusätzlich `OperatingHours/Standby`.
+        const tool1HasActiveSignal =
+          isFreshTimestamp(tool1.power_updated_at, 3) ||
+          isFreshTimestamp(tool1.standby_updated_at, 15) ||
+          String(tool1.state || "").toUpperCase() === "ON";
+
+        const tool2HasActiveSignal =
+          isFreshTimestamp(tool2.power_updated_at, 3) ||
+          isFreshTimestamp(tool2.standby_updated_at, 15) ||
+          String(tool2.state || "").toUpperCase() === "ON";
+
+        const tool1Online = stationOnline && isFreshTimestamp(tool1.updated_at, 20) && tool1HasActiveSignal;
+        const tool2Online = stationOnline && isFreshTimestamp(tool2.updated_at, 20) && tool2HasActiveSignal;
+        updateToolTabStatus("tool1", tool1Online, !!tool1.updated_at);
+        updateToolTabStatus("tool2", tool2Online, !!tool2.updated_at);
+
+        pushLog(data);
       }
 
       let reconnectTimer = null;
@@ -159,6 +380,7 @@
         });
       }
 
+      initTabs();
       connectWS();
     </script>
   </body>
