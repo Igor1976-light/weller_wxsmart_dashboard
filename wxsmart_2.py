@@ -28,6 +28,8 @@ DEFAULT_DISCOVERY_CSV = os.path.join(PROJECT_DIR, "temp", "wxsmart_status_topics
 DISCOVERY_CSV = os.getenv("MQTT_DISCOVERY_CSV", DEFAULT_DISCOVERY_CSV)
 DEFAULT_LIVE_CSV = os.path.join(PROJECT_DIR, "temp", "wxsmart_live_metrics.csv")
 LIVE_CSV = os.getenv("MQTT_LIVE_CSV", DEFAULT_LIVE_CSV)
+DEFAULT_TEMP_LOG_FILE = os.path.join(PROJECT_DIR, "temp", "wxsmart_temperature.log")
+TEMP_LOG_FILE = os.getenv("MQTT_TEMP_LOG_FILE", DEFAULT_TEMP_LOG_FILE)
 LIVE_IDLE_WARN_SECONDS = int(os.getenv("MQTT_LIVE_IDLE_WARN_SECONDS", "12"))
 
 message_count = 0
@@ -40,6 +42,15 @@ all_topic_counts: dict[str, int] = {}
 live_csv_header_written = False
 live_message_count = 0
 last_live_topic_at: datetime | None = None
+temp_message_count = 0
+last_temp_topic_at: datetime | None = None
+
+
+def is_temperature_read_topic(topic: str) -> bool:
+    return (
+        "/STATUS/Tool1/Temperature/Read" in topic
+        or "/STATUS/Tool2/Temperature/Read" in topic
+    )
 
 
 def is_live_topic(topic: str) -> bool:
@@ -47,10 +58,8 @@ def is_live_topic(topic: str) -> bool:
         return False
     live_markers = (
         "/STATUS/ONLINE",
-        "/Temperature/Read",
-        "/Temperature/Set",
-        "/Power/Read",
-        "/Power/Set",
+        "/Temperature",      # trifft /Temperature, /Temperature/Read, /Temperature/Set
+        "/Power",            # trifft /Power, /Power/Read, /Power/Set
         "/Counter/Time",
         "/State",
     )
@@ -103,6 +112,19 @@ def write_live_csv_row(
             ])
     except OSError as error:
         print(f"[LIVE_CSV_ERROR] CSV schreiben fehlgeschlagen: {error}", file=sys.stderr)
+
+
+def write_temperature_log_row(log_line: str) -> None:
+    if not TEMP_LOG_FILE:
+        return
+    try:
+        temp_log_dir = os.path.dirname(TEMP_LOG_FILE)
+        if temp_log_dir:
+            os.makedirs(temp_log_dir, exist_ok=True)
+        with open(TEMP_LOG_FILE, "a", encoding="utf-8") as file_handle:
+            file_handle.write(log_line + "\n")
+    except OSError as error:
+        print(f"[TEMP_LOG_ERROR] Datei schreiben fehlgeschlagen: {error}", file=sys.stderr)
 
 
 def log_message(msg: str) -> None:
@@ -174,7 +196,7 @@ def is_probably_json(payload_text: str) -> bool:
 
 
 def on_message(client: Any, userdata: Any, msg: Any) -> None:
-    global message_count, error_count, live_message_count, last_live_topic_at
+    global message_count, error_count, live_message_count, last_live_topic_at, temp_message_count, last_temp_topic_at
     message_count += 1
 
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
@@ -190,14 +212,32 @@ def on_message(client: Any, userdata: Any, msg: Any) -> None:
         status_topic_values[msg.topic] = payload_value
         status_topic_counts[msg.topic] = status_topic_counts.get(msg.topic, 0) + 1
 
+    is_temp_read = is_temperature_read_topic(msg.topic)
+
     if MODE == "discover":
+        return
+
+    if MODE == "temp":
+        if is_temp_read:
+            temp_message_count += 1
+            last_temp_topic_at = datetime.now()
+            line = format_compact_line(msg.topic, payload_value, timestamp, message_count)
+            log_message(line)
+            write_temperature_log_row(line)
+            if VERBOSE:
+                log_message(f"  qos={msg.qos} retain={msg.retain} bytes={len(payload_bytes)}")
         return
 
     if MODE == "live":
         if is_live_topic(msg.topic):
             live_message_count += 1
             last_live_topic_at = datetime.now()
-            log_message(format_compact_line(msg.topic, payload_value, timestamp, message_count))
+            line = format_compact_line(msg.topic, payload_value, timestamp, message_count)
+            log_message(line)
+            if is_temp_read:
+                temp_message_count += 1
+                last_temp_topic_at = datetime.now()
+                write_temperature_log_row(line)
             write_live_csv_row(
                 timestamp=timestamp,
                 topic=msg.topic,
@@ -211,7 +251,12 @@ def on_message(client: Any, userdata: Any, msg: Any) -> None:
         return
 
     if COMPACT_VIEW:
-        log_message(format_compact_line(msg.topic, payload_value, timestamp, message_count))
+        line = format_compact_line(msg.topic, payload_value, timestamp, message_count)
+        log_message(line)
+        if is_temp_read:
+            temp_message_count += 1
+            last_temp_topic_at = datetime.now()
+            write_temperature_log_row(line)
         if VERBOSE:
             log_message(f"  qos={msg.qos} retain={msg.retain} bytes={len(payload_bytes)}")
         return
@@ -321,6 +366,7 @@ def main() -> int:
     log_message(f"Broker     : {active_host}:{BROKER_PORT} (WebSocket)")
     log_message(f"Topic-Filter: {TOPIC_FILTER}")
     log_message(f"Log-Datei  : {LOG_FILE if LOG_FILE else '(Datei-Logging deaktiviert)'}")
+    log_message(f"Temp-Log   : {TEMP_LOG_FILE if TEMP_LOG_FILE else '(deaktiviert)'}")
     log_message(f"Verbose    : {VERBOSE}")
     log_message(f"Kompakt    : {COMPACT_VIEW}")
     log_message(f"Modus      : {MODE}")
@@ -393,6 +439,45 @@ def main() -> int:
         other_count = len(all_topic_values) - status_count
         log_message(f"Gesamt: {len(all_topic_values)} Topics ({status_count} STATUS, {other_count} andere)")
         log_message(f"{'='*80}")
+        return 0
+
+    if MODE == "temp":
+        log_message(
+            "Temperatur-Ansicht aktiv: warte auf Tool1/Temperature/Read und Tool2/Temperature/Read "
+            f"(Hinweis alle {LIVE_IDLE_WARN_SECONDS}s)"
+        )
+        client.loop_start()
+        try:
+            last_hint_at = time.monotonic()
+            while True:
+                time.sleep(1)
+                now_monotonic = time.monotonic()
+                if now_monotonic - last_hint_at >= LIVE_IDLE_WARN_SECONDS:
+                    since_start = (datetime.now() - start_time).total_seconds()
+                    if last_temp_topic_at is None:
+                        log_message(f"⏳ Keine Temperatur-Topics seit Start ({since_start:.0f}s).")
+                    else:
+                        idle_seconds = (datetime.now() - last_temp_topic_at).total_seconds()
+                        log_message(
+                            f"⏳ Letztes Temperatur-Topic vor {idle_seconds:.0f}s, "
+                            f"gesamt Temperatur-Meldungen: {temp_message_count}."
+                        )
+                    last_hint_at = now_monotonic
+        except KeyboardInterrupt:
+            elapsed = (datetime.now() - start_time).total_seconds()
+            log_message("")
+            log_message(f"{'='*80}")
+            log_message("Temperatur-Monitor beendet")
+            log_message(f"{'='*80}")
+            log_message(f"Laufzeit            : {elapsed:.1f}s")
+            log_message(f"Nachrichten gesamt  : {message_count}")
+            log_message(f"Temperatur-Meldungen: {temp_message_count}")
+            log_message(f"Fehler              : {error_count}")
+            if message_count > 0 and elapsed > 0:
+                log_message(f"Durchsatz           : {message_count / elapsed:.2f} Msg/s")
+            log_message(f"{'='*80}")
+            client.loop_stop()
+            client.disconnect()
         return 0
 
     if MODE == "live":

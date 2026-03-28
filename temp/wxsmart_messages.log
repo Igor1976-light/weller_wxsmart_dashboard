@@ -573,3 +573,1634 @@ Live-Ansicht aktiv: warte auf Temperature/Read, Power/Read, Counter/Time, ONLINE
 ⏳ Keine Live-Topics seit Start (657s). Station sendet aktuell nur statische STATUS-Daten.
 ⏳ Keine Live-Topics seit Start (1300s). Station sendet aktuell nur statische STATUS-Daten.
 ⏳ Keine Live-Topics seit Start (1305s). Station sendet aktuell nur statische STATUS-Daten.
+Verbinde zu localhost:9001 (WebSocket) …
+[LOG] Sending CONNECT (u0, p0, wr0, wq0, wf0, c1, k60) client_id=b''
+
+================================================================================
+WXSMART MQTT-Monitor gestartet
+================================================================================
+Broker     : localhost:9001 (WebSocket)
+Topic-Filter: WXSMART/1660101260218/#
+Log-Datei  : /Users/icke/Documents/wxsmart/temp/wxsmart_messages.log
+Verbose    : True
+Kompakt    : True
+Modus      : monitor
+Start-Zeit : 2026-03-28 19:23:56
+================================================================================
+
+[LOG] Received CONNACK (0, 0)
+✔ Verbunden mit Broker auf localhost:9001 (nach 0.0s)
+[LOG] Sending SUBSCRIBE (d0, m1) [(b'WXSMART/1660101260218/#', 0)]
+✔ Subscribe auf 'WXSMART/1660101260218/#' gesendet (result=0, mid=1)
+[LOG] Received SUBACK
+✔ Subscription bestätigt (mid=1, reason_codes=[ReasonCode(Suback, 'Granted QoS 0')])
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tip1/ID', ...  (4 bytes)
+[2026-03-28 19:23:56.590] #1 1660101260218 | Tip1.ID = 3001
+  qos=0 retain=True bytes=4
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tip1/SerialNumber', ...  (36 bytes)
+[2026-03-28 19:23:56.591] #2 1660101260218 | Tip1.SerialNumber = 160 , 32 , 15 , 152 , 2 , 0 , 0 , 19
+  qos=0 retain=True bytes=36
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tip2/ID', ...  (4 bytes)
+[2026-03-28 19:23:56.591] #3 1660101260218 | Tip2.ID = 2210
+  qos=0 retain=True bytes=4
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tip2/SerialNumber', ...  (35 bytes)
+[2026-03-28 19:23:56.591] #4 1660101260218 | Tip2.SerialNumber = 160 , 8 , 52 , 179 , 2 , 0 , 0 , 20
+  qos=0 retain=True bytes=35
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool1/ID', ...  (2 bytes)
+[2026-03-28 19:23:56.591] #5 1660101260218 | Tool1.ID = 23
+  qos=0 retain=True bytes=2
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool1/OperatingHours/Total', ...  (1 bytes)
+[2026-03-28 19:23:56.591] #6 1660101260218 | Tool1.OperatingHours.Total = 8
+  qos=0 retain=True bytes=1
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:23:56.591] #7 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=True bytes=42
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool1/Version/Firmware', ...  (2 bytes)
+[2026-03-28 19:23:56.592] #8 1660101260218 | Tool1.Version.Firmware = 39
+  qos=0 retain=True bytes=2
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool2/ID', ...  (2 bytes)
+[2026-03-28 19:23:56.592] #9 1660101260218 | Tool2.ID = 21
+  qos=0 retain=True bytes=2
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool2/OperatingHours/Total', ...  (1 bytes)
+[2026-03-28 19:23:56.592] #10 1660101260218 | Tool2.OperatingHours.Total = 8
+  qos=0 retain=True bytes=1
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:23:56.592] #11 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=True bytes=41
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool2/Version/Firmware', ...  (2 bytes)
+[2026-03-28 19:23:56.592] #12 1660101260218 | Tool2.Version.Firmware = 29
+  qos=0 retain=True bytes=2
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Station1/Version/Firmware', ...  (3 bytes)
+[2026-03-28 19:23:56.592] #13 1660101260218 | Station1.Version.Firmware = 164
+  qos=0 retain=True bytes=3
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Station1/Version/Bootloader', ...  (1 bytes)
+[2026-03-28 19:23:56.592] #14 1660101260218 | Station1.Version.Bootloader = 6
+  qos=0 retain=True bytes=1
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/ExtUnit1/ID', ...  (1 bytes)
+[2026-03-28 19:23:56.592] #15 1660101260218 | ExtUnit1.ID = 0
+  qos=0 retain=True bytes=1
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/ExtUnit2/ID', ...  (1 bytes)
+[2026-03-28 19:23:56.592] #16 1660101260218 | ExtUnit2.ID = 0
+  qos=0 retain=True bytes=1
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Config/System/DeviceName', ...  (12 bytes)
+[2026-03-28 19:23:56.593] #17 1660101260218 | Config.System.DeviceName = wxsmart-0218
+  qos=0 retain=True bytes=12
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Config/System/NetworkIF', ...  (1 bytes)
+[2026-03-28 19:23:56.593] #18 1660101260218 | Config.System.NetworkIF = 0
+  qos=0 retain=True bytes=1
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Config/System/Version/stm32', ...  (2 bytes)
+[2026-03-28 19:23:56.593] #19 1660101260218 | Config.System.Version.stm32 = 62
+  qos=0 retain=True bytes=2
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Config/System/Version/esp32', ...  (2 bytes)
+[2026-03-28 19:23:56.593] #20 1660101260218 | Config.System.Version.esp32 = 10
+  qos=0 retain=True bytes=2
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Config/IF0/IPAddress', ...  (19 bytes)
+[2026-03-28 19:23:56.593] #21 1660101260218 | Config.IF0.IPAddress = 192 , 168 , 1 , 128
+  qos=0 retain=True bytes=19
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:23:56.648] #22 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:23:56.790] #23 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:23:56.880] #24 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:23:57.151] #25 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:23:57.196] #26 1660101260218 | Tool1.Counter.Time = 64569
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:23:57.200] #27 1660101260218 | Tool2.Counter.Time = 64569
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:23:57.331] #28 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:23:57.510] #29 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:23:57.781] #30 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:23:57.981] #31 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:23:58.111] #32 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:23:58.114] #33 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:23:58.201] #34 1660101260218 | Tool1.Counter.Time = 64568
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:23:58.204] #35 1660101260218 | Tool2.Counter.Time = 64568
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:23:58.591] #36 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Station1/UTC', ...  (10 bytes)
+[2026-03-28 19:23:58.636] #37 1660101260218 | Station1.UTC = 1774742713
+  qos=0 retain=False bytes=10
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Config/System/OperationTime', ...  (5 bytes)
+[2026-03-28 19:23:58.639] #38 1660101260218 | Config.System.OperationTime = 32640
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:23:58.681] #39 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:23:58.771] #40 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:23:58.861] #41 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:23:58.990] #42 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:23:59.176] #43 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:23:59.251] #44 1660101260218 | Tool1.Counter.Time = 64567
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:23:59.254] #45 1660101260218 | Tool2.Counter.Time = 64567
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:23:59.401] #46 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:23:59.618] #47 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:23:59.761] #48 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:23:59.941] #49 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:00.031] #50 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:00.241] #51 1660101260218 | Tool1.Counter.Time = 64566
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:00.245] #52 1660101260218 | Tool2.Counter.Time = 64566
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:00.301] #53 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:00.661] #54 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:00.751] #55 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:00.879] #56 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:00.932] #57 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:01.111] #58 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:01.231] #59 1660101260218 | Tool1.Counter.Time = 64565
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:01.234] #60 1660101260218 | Tool2.Counter.Time = 64565
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:01.292] #61 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:01.682] #62 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:01.686] #63 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:01.832] #64 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:02.143] #65 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/ONLINE', ...  (6 bytes)
+[2026-03-28 19:24:02.147] #66 1660101260218 | ONLINE = ONLINE
+  qos=0 retain=False bytes=6
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:02.251] #67 1660101260218 | Tool1.Counter.Time = 64564
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:02.254] #68 1660101260218 | Tool2.Counter.Time = 64564
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:02.281] #69 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:02.372] #70 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:02.770] #71 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:02.912] #72 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:03.006] #73 1660101260218 | Tool1.Power = 25
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:03.090] #74 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:03.180] #75 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:03.240] #76 1660101260218 | Tool1.Counter.Time = 64563
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:03.244] #77 1660101260218 | Tool2.Counter.Time = 64563
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:03.901] #78 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:04.081] #79 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:04.230] #80 1660101260218 | Tool1.Counter.Time = 64562
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:04.233] #81 1660101260218 | Tool2.Counter.Time = 64562
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:04.352] #82 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:04.441] #83 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:04.892] #84 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:05.161] #85 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:05.208] #86 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:05.211] #87 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:05.280] #88 1660101260218 | Tool1.Counter.Time = 64561
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:05.283] #89 1660101260218 | Tool2.Counter.Time = 64561
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:05.521] #90 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:05.792] #91 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:05.920] #92 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:06.061] #93 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:06.241] #94 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:06.302] #95 1660101260218 | Tool1.Counter.Time = 64560
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:06.304] #96 1660101260218 | Tool2.Counter.Time = 64560
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:06.548] #97 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:06.691] #98 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:06.871] #99 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:07.180] #100 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:07.322] #101 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:07.379] #102 1660101260218 | Tool1.Counter.Time = 64559
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:07.383] #103 1660101260218 | Tool2.Counter.Time = 64559
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:07.681] #104 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:07.862] #105 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:07.951] #106 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:08.132] #107 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:08.341] #108 1660101260218 | Tool1.Counter.Time = 64558
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:08.344] #109 1660101260218 | Tool2.Counter.Time = 64558
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:08.509] #110 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:08.581] #111 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:08.671] #112 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:08.792] #113 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:08.795] #114 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:08.851] #115 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:08.890] #116 1660101260218 | Tool1.Counter.Time = 64557
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:08.892] #117 1660101260218 | Tool2.Counter.Time = 64557
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:09.211] #118 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:09.301] #119 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:09.391] #120 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:09.518] #121 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:09.699] #122 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:09.932] #123 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:10.351] #124 1660101260218 | Tool1.Counter.Time = 64556
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:10.353] #125 1660101260218 | Tool2.Counter.Time = 64556
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:10.380] #126 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:10.471] #127 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:10.561] #128 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:10.778] #129 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:11.012] #130 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:11.192] #131 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:11.401] #132 1660101260218 | Tool1.Counter.Time = 64555
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:11.404] #133 1660101260218 | Tool2.Counter.Time = 64555
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:11.461] #134 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:11.641] #135 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:11.821] #136 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:11.881] #137 1660101260218 | Tool1.Counter.Time = 64554
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:11.884] #138 1660101260218 | Tool2.Counter.Time = 64554
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:12.038] #139 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:12.182] #140 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:12.273] #141 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:12.332] #142 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:12.335] #143 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:12.670] #144 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:12.721] #145 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:12.932] #146 1660101260218 | Tool1.Counter.Time = 64553
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:12.934] #147 1660101260218 | Tool2.Counter.Time = 64553
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:13.351] #148 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:13.441] #149 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:13.712] #150 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:13.952] #151 1660101260218 | Tool1.Counter.Time = 64552
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:13.955] #152 1660101260218 | Tool2.Counter.Time = 64552
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:14.072] #153 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:14.252] #154 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:14.342] #155 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:14.610] #156 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:14.882] #157 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:14.941] #158 1660101260218 | Tool1.Counter.Time = 64551
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:14.945] #159 1660101260218 | Tool2.Counter.Time = 64551
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:14.972] #160 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:15.062] #161 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:15.191] #162 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:15.242] #163 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:15.422] #164 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:15.513] #165 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:15.602] #166 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:15.843] #167 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:15.846] #168 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:15.873] #169 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:15.933] #170 1660101260218 | Tool1.Counter.Time = 64550
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:15.935] #171 1660101260218 | Tool2.Counter.Time = 64550
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:15.962] #172 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:16.270] #173 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:16.502] #174 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:16.772] #175 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:16.940] #176 1660101260218 | Tool1.Counter.Time = 64549
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:16.943] #177 1660101260218 | Tool2.Counter.Time = 64549
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/ONLINE', ...  (6 bytes)
+[2026-03-28 19:24:17.149] #178 1660101260218 | ONLINE = ONLINE
+  qos=0 retain=False bytes=6
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:17.313] #179 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:17.402] #180 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:17.711] #181 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:17.853] #182 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:17.913] #183 1660101260218 | Tool1.Counter.Time = 64548
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:17.915] #184 1660101260218 | Tool2.Counter.Time = 64548
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:18.302] #185 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:18.394] #186 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:18.573] #187 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:18.790] #188 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:18.933] #189 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:18.987] #190 1660101260218 | Tool1.Counter.Time = 64547
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:18.990] #191 1660101260218 | Tool2.Counter.Time = 64547
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:19.023] #192 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:19.413] #193 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:19.416] #194 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:19.563] #195 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:19.983] #196 1660101260218 | Tool1.Counter.Time = 64546
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:19.986] #197 1660101260218 | Tool2.Counter.Time = 64546
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:20.049] #198 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:20.283] #199 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:20.372] #200 1660101260218 | Tool1.Power = 25
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:20.463] #201 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:20.553] #202 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:20.680] #203 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:20.823] #204 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:20.974] #205 1660101260218 | Tool1.Counter.Time = 64545
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:20.977] #206 1660101260218 | Tool2.Counter.Time = 64545
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:21.182] #207 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:21.363] #208 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:21.454] #209 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:21.543] #210 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:21.634] #211 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:21.723] #212 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:21.814] #213 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:21.963] #214 1660101260218 | Tool1.Counter.Time = 64544
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:21.966] #215 1660101260218 | Tool2.Counter.Time = 64544
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:22.083] #216 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:22.173] #217 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:22.442] #218 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:22.569] #219 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:22.622] #220 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:22.803] #221 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:22.864] #222 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:22.867] #223 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:22.954] #224 1660101260218 | Tool1.Counter.Time = 64543
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:22.956] #225 1660101260218 | Tool2.Counter.Time = 64543
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:23.201] #226 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:23.253] #227 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:23.830] #228 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:23.973] #229 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:24.092] #230 1660101260218 | Tool1.Counter.Time = 64542
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:24.095] #231 1660101260218 | Tool2.Counter.Time = 64542
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:24.333] #232 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:24.602] #233 1660101260218 | Tool1.Power = 25
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:24.692] #234 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:24.782] #235 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:25.053] #236 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:25.114] #237 1660101260218 | Tool1.Counter.Time = 64541
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:25.117] #238 1660101260218 | Tool2.Counter.Time = 64541
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:25.142] #239 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:25.233] #240 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:25.323] #241 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:25.542] #242 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:25.683] #243 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:25.863] #244 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:26.043] #245 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:26.103] #246 1660101260218 | Tool1.Counter.Time = 64540
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:26.105] #247 1660101260218 | Tool2.Counter.Time = 64540
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:26.525] #248 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:26.528] #249 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:26.584] #250 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:26.800] #251 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:27.094] #252 1660101260218 | Tool1.Counter.Time = 64539
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:27.097] #253 1660101260218 | Tool2.Counter.Time = 64539
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:27.484] #254 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:27.664] #255 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:28.062] #256 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:28.085] #257 1660101260218 | Tool1.Counter.Time = 64538
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:28.087] #258 1660101260218 | Tool2.Counter.Time = 64538
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:28.115] #259 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:28.514] #260 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:28.656] #261 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:29.015] #262 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:29.075] #263 1660101260218 | Tool1.Counter.Time = 64537
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:29.078] #264 1660101260218 | Tool2.Counter.Time = 64537
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:29.195] #265 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:29.465] #266 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:29.556] #267 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:29.646] #268 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:29.825] #269 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:30.037] #270 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:30.040] #271 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:30.126] #272 1660101260218 | Tool1.Counter.Time = 64536
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:30.129] #273 1660101260218 | Tool2.Counter.Time = 64536
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:30.186] #274 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:30.275] #275 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:30.456] #276 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:30.815] #277 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:30.926] #278 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:31.032] #279 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:31.145] #280 1660101260218 | Tool1.Counter.Time = 64535
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:31.148] #281 1660101260218 | Tool2.Counter.Time = 64535
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:31.175] #282 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:31.266] #283 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:31.447] #284 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:31.718] #285 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:31.807] #286 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:31.896] #287 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:32.137] #288 1660101260218 | Tool1.Counter.Time = 64534
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:32.139] #289 1660101260218 | Tool2.Counter.Time = 64534
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/ONLINE', ...  (6 bytes)
+[2026-03-28 19:24:32.186] #290 1660101260218 | ONLINE = ONLINE
+  qos=0 retain=False bytes=6
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:32.228] #291 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:32.293] #292 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:32.346] #293 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:32.616] #294 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:33.067] #295 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:33.158] #296 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:33.216] #297 1660101260218 | Tool1.Counter.Time = 64533
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:33.219] #298 1660101260218 | Tool2.Counter.Time = 64533
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:33.426] #299 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:33.606] #300 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:33.650] #301 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:33.653] #302 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:33.786] #303 1660101260218 | Tool1.Power = 25
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:33.877] #304 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:34.207] #305 1660101260218 | Tool1.Counter.Time = 64532
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:34.210] #306 1660101260218 | Tool2.Counter.Time = 64532
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:34.237] #307 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:34.548] #308 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:34.688] #309 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:34.778] #310 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:35.048] #311 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:35.138] #312 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:35.265] #313 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:35.268] #314 1660101260218 | Tool1.Counter.Time = 64531
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:35.272] #315 1660101260218 | Tool2.Counter.Time = 64531
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:35.318] #316 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:35.407] #317 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:35.587] #318 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:35.896] #319 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:35.946] #320 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:36.277] #321 1660101260218 | Tool1.Counter.Time = 64530
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:36.280] #322 1660101260218 | Tool2.Counter.Time = 64530
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:36.397] #323 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:36.668] #324 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:36.848] #325 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:36.975] #326 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:37.178] #327 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:37.182] #328 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:37.267] #329 1660101260218 | Tool1.Counter.Time = 64529
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:37.270] #330 1660101260218 | Tool2.Counter.Time = 64529
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:37.298] #331 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:37.387] #332 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:37.479] #333 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:37.658] #334 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:37.839] #335 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:37.929] #336 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:38.018] #337 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:38.108] #338 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:38.238] #339 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:38.258] #340 1660101260218 | Tool1.Counter.Time = 64528
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:38.262] #341 1660101260218 | Tool2.Counter.Time = 64528
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:38.326] #342 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:38.379] #343 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:38.739] #344 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:38.919] #345 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:39.098] #346 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:39.308] #347 1660101260218 | Tool1.Counter.Time = 64527
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:39.310] #348 1660101260218 | Tool2.Counter.Time = 64527
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:39.368] #349 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:39.729] #350 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:40.178] #351 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:40.330] #352 1660101260218 | Tool1.Counter.Time = 64526
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:40.332] #353 1660101260218 | Tool2.Counter.Time = 64526
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:40.360] #354 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:40.629] #355 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:40.750] #356 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:40.753] #357 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:40.899] #358 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:41.319] #359 1660101260218 | Tool1.Counter.Time = 64525
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:41.321] #360 1660101260218 | Tool2.Counter.Time = 64525
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:41.387] #361 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:41.619] #362 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:41.747] #363 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:41.835] #364 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:41.918] #365 1660101260218 | Tool1.Counter.Time = 64524
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:41.922] #366 1660101260218 | Tool2.Counter.Time = 64524
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:42.068] #367 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:42.249] #368 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:42.467] #369 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:42.519] #370 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:42.699] #371 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:42.789] #372 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:42.909] #373 1660101260218 | Tool1.Counter.Time = 64523
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:42.911] #374 1660101260218 | Tool2.Counter.Time = 64523
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:43.149] #375 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:43.240] #376 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:43.420] #377 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:43.600] #378 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:43.870] #379 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:43.930] #380 1660101260218 | Tool1.Counter.Time = 64522
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:43.934] #381 1660101260218 | Tool2.Counter.Time = 64522
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:44.173] #382 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:44.358] #383 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:44.381] #384 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:44.384] #385 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:44.410] #386 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:44.590] #387 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:44.681] #388 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:44.861] #389 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:44.981] #390 1660101260218 | Tool1.Counter.Time = 64521
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:44.984] #391 1660101260218 | Tool2.Counter.Time = 64521
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:45.041] #392 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:45.130] #393 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:45.491] #394 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:45.671] #395 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:45.852] #396 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:46.008] #397 1660101260218 | Tool1.Counter.Time = 64520
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:46.011] #398 1660101260218 | Tool2.Counter.Time = 64520
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:46.301] #399 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:46.572] #400 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:46.991] #401 1660101260218 | Tool1.Counter.Time = 64519
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:46.994] #402 1660101260218 | Tool2.Counter.Time = 64519
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/ONLINE', ...  (6 bytes)
+[2026-03-28 19:24:47.189] #403 1660101260218 | ONLINE = ONLINE
+  qos=0 retain=False bytes=6
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:47.201] #404 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:47.328] #405 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:47.381] #406 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:47.561] #407 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:47.650] #408 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:47.760] #409 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:24:47.892] #410 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:24:47.895] #411 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:47.981] #412 1660101260218 | Tool1.Counter.Time = 64518
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:47.984] #413 1660101260218 | Tool2.Counter.Time = 64518
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:48.011] #414 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:48.192] #415 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:48.372] #416 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:48.732] #417 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:48.973] #418 1660101260218 | Tool1.Counter.Time = 64517
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:48.975] #419 1660101260218 | Tool2.Counter.Time = 64517
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:49.272] #420 1660101260218 | Tool1.Power = 25
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:49.363] #421 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:49.543] #422 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:49.633] #423 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:49.851] #424 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:49.963] #425 1660101260218 | Tool1.Counter.Time = 64516
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:49.966] #426 1660101260218 | Tool2.Counter.Time = 64516
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:50.172] #427 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:50.262] #428 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:50.353] #429 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (2 bytes)
+[2026-03-28 19:24:50.623] #430 1660101260218 | Tool1.Power = 12
+  qos=0 retain=False bytes=2
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Power', ...  (1 bytes)
+[2026-03-28 19:24:50.713] #431 1660101260218 | Tool1.Power = 0
+  qos=0 retain=False bytes=1
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:50.953] #432 1660101260218 | Tool1.Counter.Time = 64515
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:24:50.956] #433 1660101260218 | Tool2.Counter.Time = 64515
+  qos=0 retain=False bytes=5
+
+================================================================================
+Monitor beendet
+================================================================================
+Laufzeit      : 54.7s
+Nachrichten   : 433
+Fehler        : 0
+Durchsatz     : 7.92 Msg/s
+================================================================================
+[LOG] Sending DISCONNECT
+⚠ Verbindung getrennt: Normal disconnection (nach 54.7s, 433 Nachrichten)
+Verbinde zu 192.168.1.247:9001 (WebSocket) …
+
+================================================================================
+WXSMART MQTT-Monitor gestartet
+================================================================================
+Broker     : 192.168.1.247:9001 (WebSocket)
+Topic-Filter: WXSMART/1660101260218/#
+Log-Datei  : /Users/icke/Documents/wxsmart/temp/wxsmart_messages.log
+Verbose    : False
+Kompakt    : True
+Modus      : live
+Start-Zeit : 2026-03-28 19:39:18
+================================================================================
+
+Live-Ansicht aktiv: warte auf Temperature/Read, Power/Read, Counter/Time, ONLINE, State (Hinweis alle 12s)
+✔ Verbunden mit Broker auf 192.168.1.247:9001 (nach 0.0s)
+✔ Subscribe auf 'WXSMART/1660101260218/#' gesendet (result=0, mid=1)
+✔ Subscription bestätigt (mid=1, reason_codes=[ReasonCode(Suback, 'Granted QoS 0')])
+[2026-03-28 19:39:18.463] #22 1660101260218 | Tool1.Counter.Time = 64848
+[2026-03-28 19:39:18.467] #23 1660101260218 | Tool2.Counter.Time = 64848
+[2026-03-28 19:39:19.454] #24 1660101260218 | Tool1.Counter.Time = 64847
+[2026-03-28 19:39:19.458] #25 1660101260218 | Tool2.Counter.Time = 64847
+[2026-03-28 19:39:20.445] #28 1660101260218 | Tool1.Counter.Time = 64846
+[2026-03-28 19:39:20.448] #29 1660101260218 | Tool2.Counter.Time = 64846
+[2026-03-28 19:39:21.435] #30 1660101260218 | Tool1.Counter.Time = 64845
+[2026-03-28 19:39:21.438] #31 1660101260218 | Tool2.Counter.Time = 64845
+[2026-03-28 19:39:22.425] #32 1660101260218 | Tool1.Counter.Time = 64844
+[2026-03-28 19:39:22.428] #33 1660101260218 | Tool2.Counter.Time = 64844
+[2026-03-28 19:39:23.416] #34 1660101260218 | Tool1.Counter.Time = 64843
+[2026-03-28 19:39:23.419] #35 1660101260218 | Tool2.Counter.Time = 64843
+[2026-03-28 19:39:24.406] #38 1660101260218 | Tool1.Counter.Time = 64842
+[2026-03-28 19:39:24.409] #39 1660101260218 | Tool2.Counter.Time = 64842
+[2026-03-28 19:39:25.397] #40 1660101260218 | Tool1.Counter.Time = 64841
+[2026-03-28 19:39:25.401] #41 1660101260218 | Tool2.Counter.Time = 64841
+[2026-03-28 19:39:26.387] #42 1660101260218 | Tool1.Counter.Time = 64840
+[2026-03-28 19:39:26.391] #43 1660101260218 | Tool2.Counter.Time = 64840
+[2026-03-28 19:39:27.378] #46 1660101260218 | Tool1.Counter.Time = 64839
+[2026-03-28 19:39:27.381] #47 1660101260218 | Tool2.Counter.Time = 64839
+[2026-03-28 19:39:28.369] #48 1660101260218 | Tool1.Counter.Time = 64838
+[2026-03-28 19:39:28.372] #49 1660101260218 | Tool2.Counter.Time = 64838
+[2026-03-28 19:39:29.359] #50 1660101260218 | Tool1.Counter.Time = 64837
+[2026-03-28 19:39:29.363] #51 1660101260218 | Tool2.Counter.Time = 64837
+[2026-03-28 19:39:30.349] #52 1660101260218 | Tool1.Counter.Time = 64836
+[2026-03-28 19:39:30.351] #53 1660101260218 | Tool2.Counter.Time = 64836
+⏳ Letztes Live-Topic vor 0s, gesamt Live-Meldungen: 26.
+[2026-03-28 19:39:31.339] #56 1660101260218 | Tool1.Counter.Time = 64835
+[2026-03-28 19:39:31.342] #57 1660101260218 | Tool2.Counter.Time = 64835
+[2026-03-28 19:39:32.253] #58 1660101260218 | ONLINE = ONLINE
+[2026-03-28 19:39:32.330] #59 1660101260218 | Tool1.Counter.Time = 64834
+[2026-03-28 19:39:32.334] #60 1660101260218 | Tool2.Counter.Time = 64834
+[2026-03-28 19:39:33.321] #61 1660101260218 | Tool1.Counter.Time = 64833
+[2026-03-28 19:39:33.324] #62 1660101260218 | Tool2.Counter.Time = 64833
+[2026-03-28 19:39:34.311] #65 1660101260218 | Tool1.Counter.Time = 64832
+[2026-03-28 19:39:34.321] #66 1660101260218 | Tool2.Counter.Time = 64832
+[2026-03-28 19:39:35.301] #69 1660101260218 | Tool1.Counter.Time = 64831
+[2026-03-28 19:39:35.304] #70 1660101260218 | Tool2.Counter.Time = 64831
+[2026-03-28 19:39:36.292] #71 1660101260218 | Tool1.Counter.Time = 64830
+[2026-03-28 19:39:36.295] #72 1660101260218 | Tool2.Counter.Time = 64830
+[2026-03-28 19:39:37.281] #73 1660101260218 | Tool1.Counter.Time = 64829
+[2026-03-28 19:39:37.284] #74 1660101260218 | Tool2.Counter.Time = 64829
+[2026-03-28 19:39:38.272] #77 1660101260218 | Tool1.Counter.Time = 64828
+[2026-03-28 19:39:38.274] #78 1660101260218 | Tool2.Counter.Time = 64828
+Verbinde zu localhost:9001 (WebSocket) …
+[LOG] Sending CONNECT (u0, p0, wr0, wq0, wf0, c1, k60) client_id=b''
+
+================================================================================
+WXSMART MQTT-Monitor gestartet
+================================================================================
+Broker     : localhost:9001 (WebSocket)
+Topic-Filter: WXSMART/1660101260218/#
+Log-Datei  : /Users/icke/Documents/wxsmart/temp/wxsmart_messages.log
+Verbose    : True
+Kompakt    : True
+Modus      : monitor
+Start-Zeit : 2026-03-28 19:42:25
+================================================================================
+
+[LOG] Received CONNACK (0, 0)
+✔ Verbunden mit Broker auf localhost:9001 (nach 0.0s)
+[LOG] Sending SUBSCRIBE (d0, m1) [(b'WXSMART/1660101260218/#', 0)]
+✔ Subscribe auf 'WXSMART/1660101260218/#' gesendet (result=0, mid=1)
+[LOG] Received SUBACK
+✔ Subscription bestätigt (mid=1, reason_codes=[ReasonCode(Suback, 'Granted QoS 0')])
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tip1/ID', ...  (4 bytes)
+[2026-03-28 19:42:25.073] #1 1660101260218 | Tip1.ID = 3001
+  qos=0 retain=True bytes=4
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tip1/SerialNumber', ...  (36 bytes)
+[2026-03-28 19:42:25.073] #2 1660101260218 | Tip1.SerialNumber = 160 , 32 , 15 , 152 , 2 , 0 , 0 , 19
+  qos=0 retain=True bytes=36
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tip2/ID', ...  (4 bytes)
+[2026-03-28 19:42:25.073] #3 1660101260218 | Tip2.ID = 2210
+  qos=0 retain=True bytes=4
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tip2/SerialNumber', ...  (35 bytes)
+[2026-03-28 19:42:25.073] #4 1660101260218 | Tip2.SerialNumber = 160 , 8 , 52 , 179 , 2 , 0 , 0 , 20
+  qos=0 retain=True bytes=35
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool1/ID', ...  (2 bytes)
+[2026-03-28 19:42:25.073] #5 1660101260218 | Tool1.ID = 23
+  qos=0 retain=True bytes=2
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool1/OperatingHours/Total', ...  (1 bytes)
+[2026-03-28 19:42:25.074] #6 1660101260218 | Tool1.OperatingHours.Total = 8
+  qos=0 retain=True bytes=1
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:42:25.074] #7 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=True bytes=42
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool1/Version/Firmware', ...  (2 bytes)
+[2026-03-28 19:42:25.074] #8 1660101260218 | Tool1.Version.Firmware = 39
+  qos=0 retain=True bytes=2
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool2/ID', ...  (2 bytes)
+[2026-03-28 19:42:25.074] #9 1660101260218 | Tool2.ID = 21
+  qos=0 retain=True bytes=2
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool2/OperatingHours/Total', ...  (1 bytes)
+[2026-03-28 19:42:25.074] #10 1660101260218 | Tool2.OperatingHours.Total = 8
+  qos=0 retain=True bytes=1
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:42:25.074] #11 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=True bytes=41
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Tool2/Version/Firmware', ...  (2 bytes)
+[2026-03-28 19:42:25.074] #12 1660101260218 | Tool2.Version.Firmware = 29
+  qos=0 retain=True bytes=2
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Station1/Version/Firmware', ...  (3 bytes)
+[2026-03-28 19:42:25.075] #13 1660101260218 | Station1.Version.Firmware = 164
+  qos=0 retain=True bytes=3
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Station1/Version/Bootloader', ...  (1 bytes)
+[2026-03-28 19:42:25.075] #14 1660101260218 | Station1.Version.Bootloader = 6
+  qos=0 retain=True bytes=1
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/ExtUnit1/ID', ...  (1 bytes)
+[2026-03-28 19:42:25.075] #15 1660101260218 | ExtUnit1.ID = 0
+  qos=0 retain=True bytes=1
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/ExtUnit2/ID', ...  (1 bytes)
+[2026-03-28 19:42:25.075] #16 1660101260218 | ExtUnit2.ID = 0
+  qos=0 retain=True bytes=1
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Config/System/DeviceName', ...  (12 bytes)
+[2026-03-28 19:42:25.075] #17 1660101260218 | Config.System.DeviceName = wxsmart-0218
+  qos=0 retain=True bytes=12
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Config/System/NetworkIF', ...  (1 bytes)
+[2026-03-28 19:42:25.075] #18 1660101260218 | Config.System.NetworkIF = 0
+  qos=0 retain=True bytes=1
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Config/System/Version/stm32', ...  (2 bytes)
+[2026-03-28 19:42:25.075] #19 1660101260218 | Config.System.Version.stm32 = 62
+  qos=0 retain=True bytes=2
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Config/System/Version/esp32', ...  (2 bytes)
+[2026-03-28 19:42:25.075] #20 1660101260218 | Config.System.Version.esp32 = 10
+  qos=0 retain=True bytes=2
+[LOG] Received PUBLISH (d0, q0, r1, m0), 'WXSMART/1660101260218/STATUS/Config/IF0/IPAddress', ...  (19 bytes)
+[2026-03-28 19:42:25.076] #21 1660101260218 | Config.IF0.IPAddress = 192 , 168 , 1 , 128
+  qos=0 retain=True bytes=19
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:25.108] #22 1660101260218 | Tool1.Counter.Time = 64661
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:25.112] #23 1660101260218 | Tool2.Counter.Time = 64661
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Station1/UTC', ...  (10 bytes)
+[2026-03-28 19:42:25.957] #24 1660101260218 | Station1.UTC = 1774743820
+  qos=0 retain=False bytes=10
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Config/System/OperationTime', ...  (5 bytes)
+[2026-03-28 19:42:25.960] #25 1660101260218 | Config.System.OperationTime = 33780
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:26.099] #26 1660101260218 | Tool1.Counter.Time = 64660
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:26.102] #27 1660101260218 | Tool2.Counter.Time = 64660
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:42:27.480] #28 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:42:27.483] #29 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:27.570] #30 1660101260218 | Tool1.Counter.Time = 64659
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:27.572] #31 1660101260218 | Tool2.Counter.Time = 64659
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:28.560] #32 1660101260218 | Tool1.Counter.Time = 64658
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:28.563] #33 1660101260218 | Tool2.Counter.Time = 64658
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:29.550] #34 1660101260218 | Tool1.Counter.Time = 64657
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:29.553] #35 1660101260218 | Tool2.Counter.Time = 64657
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:30.539] #36 1660101260218 | Tool1.Counter.Time = 64656
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:30.543] #37 1660101260218 | Tool2.Counter.Time = 64656
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:42:30.961] #38 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:42:30.964] #39 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:31.529] #40 1660101260218 | Tool1.Counter.Time = 64655
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:31.532] #41 1660101260218 | Tool2.Counter.Time = 64655
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/ONLINE', ...  (6 bytes)
+[2026-03-28 19:42:32.265] #42 1660101260218 | ONLINE = ONLINE
+  qos=0 retain=False bytes=6
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:32.519] #43 1660101260218 | Tool1.Counter.Time = 64654
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:32.521] #44 1660101260218 | Tool2.Counter.Time = 64654
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:33.509] #45 1660101260218 | Tool1.Counter.Time = 64653
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:33.513] #46 1660101260218 | Tool2.Counter.Time = 64653
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:42:34.410] #47 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:42:34.413] #48 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:34.498] #49 1660101260218 | Tool1.Counter.Time = 64652
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:34.503] #50 1660101260218 | Tool2.Counter.Time = 64652
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:35.489] #51 1660101260218 | Tool1.Counter.Time = 64651
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:35.492] #52 1660101260218 | Tool2.Counter.Time = 64651
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:36.478] #53 1660101260218 | Tool1.Counter.Time = 64650
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:36.481] #54 1660101260218 | Tool2.Counter.Time = 64650
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:37.469] #55 1660101260218 | Tool1.Counter.Time = 64649
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:37.478] #56 1660101260218 | Tool2.Counter.Time = 64649
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:42:37.889] #57 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:42:37.892] #58 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:38.458] #59 1660101260218 | Tool1.Counter.Time = 64648
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:38.461] #60 1660101260218 | Tool2.Counter.Time = 64648
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:39.448] #61 1660101260218 | Tool1.Counter.Time = 64647
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:39.451] #62 1660101260218 | Tool2.Counter.Time = 64647
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:40.437] #63 1660101260218 | Tool1.Counter.Time = 64646
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:40.440] #64 1660101260218 | Tool2.Counter.Time = 64646
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/SerialNumber', ...  (42 bytes)
+[2026-03-28 19:42:41.337] #65 1660101260218 | Tool1.SerialNumber = 12866 , 33681 , 12561 , 4912 , 128 , 65535
+  qos=0 retain=False bytes=42
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/SerialNumber', ...  (41 bytes)
+[2026-03-28 19:42:41.340] #66 1660101260218 | Tool2.SerialNumber = 12866 , 33681 , 12561 , 4884 , 16 , 65535
+  qos=0 retain=False bytes=41
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:41.426] #67 1660101260218 | Tool1.Counter.Time = 64645
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:41.429] #68 1660101260218 | Tool2.Counter.Time = 64645
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:42.416] #69 1660101260218 | Tool1.Counter.Time = 64644
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:42.419] #70 1660101260218 | Tool2.Counter.Time = 64644
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool1/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:43.405] #71 1660101260218 | Tool1.Counter.Time = 64643
+  qos=0 retain=False bytes=5
+[LOG] Received PUBLISH (d0, q0, r0, m0), 'WXSMART/1660101260218/STATUS/Tool2/Counter/Time', ...  (5 bytes)
+[2026-03-28 19:42:43.408] #72 1660101260218 | Tool2.Counter.Time = 64643
+  qos=0 retain=False bytes=5
+
