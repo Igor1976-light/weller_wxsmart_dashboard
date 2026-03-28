@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Live-Tail der MQTT-Log-Datei mit farblicher Hervorhebung
-# Verwendung: ./monitor_log.sh [optional: pfad/zur/log-datei]
+# Verwendung: ./diagnostic/monitor_log.sh [optional: pfad/zur/log-datei]
 
-LOG_FILE="${1:-wxsmart_messages.log}"
+LOG_FILE="${1:-temp/wxsmart_messages.log}"
 
 if [ ! -f "$LOG_FILE" ]; then
     echo "❌ Log-Datei nicht gefunden: $LOG_FILE"

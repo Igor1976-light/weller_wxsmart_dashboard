@@ -21,9 +21,9 @@ while [ $attempt -lt $MAX_ATTEMPTS ]; do
     
     # Ping-Test
     if ping -c 1 -W 1 "$WELLER_IP" &>/dev/null; then
-        ping_status="✅ ONLINE"
+        ping_status="ONLINE"
     else
-        ping_status="❌ OFFLINE"
+        ping_status="OFFLINE"
     fi
     
     # Port-Test
@@ -44,10 +44,10 @@ done
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 if [ "$found" = true ]; then
-    echo "✅ Weller hat sich gemeldet!"
-    echo "   Überprüfe das Monitor-Log: tail -f monitor_live.log"
+    echo "Weller hat sich gemeldet!"
+    echo "   Überprüfe das Monitor-Log: tail -f temp/wxsmart_messages.log"
 else
-    echo "❌ Weller hat sich nicht gemeldet ($MAX_ATTEMPTS Sek gewartet)"
+    echo "Weller hat sich nicht gemeldet ($MAX_ATTEMPTS Sek gewartet)"
     echo ""
     echo "Mögliche Lösungen:"
     echo "1. Weller ist im Standby → Einschalten/Aufwecken"
