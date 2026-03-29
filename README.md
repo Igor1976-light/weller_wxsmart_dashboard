@@ -1,61 +1,58 @@
 # WXsmart Workspace
 
-Dieses Projekt dient zur Erfassung und grafischen Darstellung der von einer **Weller WX SMART Power Unit** gesendeten MQTT-Daten.
-Der aktuelle Stand umfasst einen bestehenden CLI-Monitor sowie ein Browser-Dashboard, das die empfangenen Live-Daten grafisch aufbereitet.
+Dieses Projekt erfasst und visualisiert MQTT-Daten einer **Weller WX SMART Power Unit**.
+
+Es enthält:
+
+- einen CLI-Monitor (`wxsmart.py`)
+- eine FastAPI-basierte Dashboard-API mit Live-WebSocket
+- ein Browser-Dashboard (`app/static/index.html`)
+- Diagnose-Skripte für Topic-Discovery und Analyse
 
 ## Zweck
 
-- Live-Monitoring der von der Weller WX SMART Power Unit gesendeten MQTT-Daten
-- grafische Anzeige im Browser für Temperatur, Power, Counter, Status und weitere Stationsdaten
-- technische Analyse und Fehlersuche bei MQTT-Kommunikation und Stationstelemetrie
+- Live-Monitoring der von der Station gesendeten MQTT-Daten
+- grafische Live-Anzeige im Browser (Station, Tool1, Tool2, Log)
+- Unterstützung bei Analyse/Fehlersuche von MQTT-Themen und Firmware-Verhalten
 
-## Unterstützte Plattformen
-
-Die Software ist grundsätzlich für diese Plattformen geeignet:
+## Plattformen
 
 - **macOS**
 - **Linux**
 - **Windows**
 
-Voraussetzung ist jeweils eine Python-Umgebung sowie ein erreichbarer MQTT-Broker.
-Das Browser-Dashboard selbst ist plattformunabhängig und läuft im Webbrowser.
+Voraussetzung: Python-Umgebung + erreichbarer MQTT-Broker.
 
 ## Voraussetzungen
 
-Für den Betrieb werden zusätzlich benötigt:
+- **Python 3.11+** (virtuelle Umgebung empfohlen)
+- MQTT-Broker (z. B. Mosquitto), typischerweise mit WebSocket-Support
+- Abhängigkeiten aus `requirements.txt`
+- optional: moderner Browser für das Dashboard
 
-- **Python 3.11+** (empfohlen: virtuelle Umgebung)
-- **MQTT-Broker** mit passender Konfiguration
-  - z. B. **Mosquitto**
-  - bei Nutzung der WX SMART typischerweise mit **WebSocket-Unterstützung** auf dem konfigurierten Port
-- **Python-Pakete** aus `requirements.txt`
-- optional ein moderner Browser für das Live-Dashboard
+## Projektstruktur
 
-Typischer Aufbau:
-
-- Weller WX SMART Power Unit sendet MQTT-Daten
-- MQTT-Broker nimmt die Daten entgegen
-- dieses Projekt liest die Daten ein und stellt sie im Browser dar
-
-## Projektaufbau
-
-Dieses Repository enthält aktuell zwei Ebenen:
-
-- `wxsmart.py`: bestehender CLI-Monitor (laufender Produktions-/Testpfad)
-- `app/`: neuer Startpunkt für das kommende Browser-Dashboard (FastAPI + MQTT Ingest)
-
-## Struktur
-
-- `app/main.py` – FastAPI App + Startup/Shutdown
-- `app/config.py` – Umgebungsvariablen
-- `app/state.py` – In-Memory Zustand (`Tool1`, `Tool2`, `station`)
-- `app/mqtt_service.py` – MQTT Subscriber und Topic-Ingest
+- `app/main.py` – FastAPI App, Lifespan-Start/Stop, WebSocket `/ws/live`
+- `app/config.py` – Konfiguration aus ENV
+- `app/state.py` – In-Memory-Zustand (`station`, `tools`, `tips`) + Topic-Parsing
+- `app/mqtt_service.py` – MQTT-Subscriber/Ingest
 - `app/api.py` – REST-Endpunkte (`/api/health`, `/api/state`, `/api/tools`, `/api/station`)
-- `app/static/index.html` – erstes Live-Dashboard im Browser
+- `app/static/index.html` – Live-Dashboard
 - `scripts/run_dashboard.sh` – lokaler Starthelfer
-- `todo.md` – Roadmap für das vollständige Live-Dashboard
+- `scripts/reload_dashboard.sh` – Neustart + Erreichbarkeits-Check
+- `diagnostic/mqtt_discovery.py` – Topic-Discovery (alle Topics, Filter, Gruppierung)
+- `wxsmart.py` – CLI-Monitor
 
-## Schnellstart (Dashboard-API)
+## Aktueller Dashboard-Stand
+
+- **Station**: Online, Firmware, Device Name, Gesamtleistung, UTC, Aktualisiert
+- **Tool1/Tool2**: ID, Temperatur (+ Verlauf), Power, Counter Time, Operating Hours Total, Serial, Firmware
+- **Tip1/Tip2**: ID, Serial (nur Felder, die auf aktueller Firmware tatsächlich Daten liefern)
+- **Log-Tab**: letzte Live-Updates
+
+Hinweis: Welche Topics/Felder verfügbar sind, hängt von Firmware und Station-Konfiguration ab.
+
+## Schnellstart (Dashboard)
 
 1. Abhängigkeiten installieren:
 
@@ -65,43 +62,74 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Optional: Umgebungsvariablen vorbereiten:
+2. Optional `.env` vorbereiten:
 
 ```zsh
 cp .env.example .env
 ```
 
-Danach Werte in `.env` anpassen (z. B. `MQTT_HOST`, `MQTT_TOPIC`).
-
-2. API starten:
+3. Dashboard starten:
 
 ```zsh
 cd /pfad/zu/wxsmart
 source .venv/bin/activate
-MQTT_HOST=<broker-ip-oder-hostname> MQTT_PORT=9001 uvicorn app.main:app --host 127.0.0.1 --port 8000
+scripts/run_dashboard.sh
 ```
 
-3. Testen:
+oder direkt via `uvicorn`:
 
+```zsh
+cd /pfad/zu/wxsmart
+source .venv/bin/activate
+uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
+
+4. Öffnen/Testen:
+
+- `http://127.0.0.1:8000/`
 - `http://127.0.0.1:8000/api/health`
 - `http://127.0.0.1:8000/api/state`
-- `http://127.0.0.1:8000/` (Live-Dashboard)
+
+## Nützliche Skripte
+
+Dashboard neu laden (kill/start + Check):
+
+```zsh
+cd /pfad/zu/wxsmart
+scripts/reload_dashboard.sh
+```
+
+MQTT-Topics entdecken (alle Daten sehen):
+
+```zsh
+cd /pfad/zu/wxsmart
+python3 diagnostic/mqtt_discovery.py --duration 120 --group --verbose
+```
+
+Beispiele mit Filter:
+
+```zsh
+python3 diagnostic/mqtt_discovery.py --pattern "Tool" --duration 90 --group --verbose
+python3 diagnostic/mqtt_discovery.py --pattern "Tip" --duration 60 --verbose
+python3 diagnostic/mqtt_discovery.py --pattern "Tool.*Power" --regex --duration 60
+```
 
 ## Wichtige ENV-Variablen
 
 - `MQTT_HOST` (Default: `localhost`)
 - `MQTT_PORT` (Default: `9001`)
-- `MQTT_TOPIC` (Default: `WXSMART/#`, optional spezifischer Filter: `WXSMART/<seriennummer>/#`)
+- `MQTT_TOPIC` (Default: `WXSMART/#`)
 - `MQTT_TRANSPORT` (Default: `websockets`)
 - `APP_HOST` (Default: `127.0.0.1`)
 - `APP_PORT` (Default: `8000`)
 
-## Hinweis
+## Live-Update ohne Reload
 
-`wxsmart.py` ist der CLI-Monitor für den direkten MQTT-Betrieb. Die `app/`-Struktur enthält die API- und Dashboard-Komponenten für den Browserbetrieb.
+- Dashboard nutzt `ws://<host>/ws/live` (unter HTTPS: `wss://...`)
+- beim Verbinden wird ein Snapshot übertragen
+- danach kommen Änderungen live
+- bei Verbindungsabbruch erfolgt automatischer Reconnect
 
-### Live-Update ohne Reload
+## English documentation
 
-- Das Dashboard nutzt `ws://127.0.0.1:8000/ws/live` (bzw. `wss://` unter HTTPS).
-- Beim Verbinden wird automatisch ein Snapshot angezeigt; danach kommen Änderungen live nach.
-- Bei Verbindungsabbruch versucht die Seite automatisch einen Reconnect.
+An English version is available in `README_en.md`.

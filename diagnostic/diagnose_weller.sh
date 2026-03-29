@@ -12,9 +12,9 @@ echo ""
 # 1. Ping-Test
 echo "1️⃣  Weller erreichbar? ($WELLER_IP)"
 if ping -c 1 -W 2 "$WELLER_IP" &>/dev/null; then
-    echo "   ✅ ONLINE"
+    echo "   ONLINE"
 else
-    echo "   ❌ OFFLINE oder nicht erreichbar"
+    echo "   OFFLINE oder nicht erreichbar"
     echo "   Hinweis: Lötstation ausgeschaltet oder falsche IP?"
     exit 1
 fi
@@ -25,34 +25,34 @@ echo "2️⃣  MQTT-Ports auf Weller:"
 # Standard MQTT (1883)
 echo -n "   Port 1883 (Standard MQTT): "
 if timeout 2 bash -c "echo > /dev/tcp/$WELLER_IP/1883" 2>/dev/null; then
-    echo "✅ OFFEN"
+    echo " OFFEN"
 else
-    echo "❌ Zu"
+    echo " Zu"
 fi
 
 # WebSocket MQTT (9001)
 echo -n "   Port 9001 (WebSocket):    "
 if timeout 2 bash -c "echo > /dev/tcp/$WELLER_IP/9001" 2>/dev/null; then
-    echo "✅ OFFEN"
+    echo " OFFEN"
 else
-    echo "❌ Zu"
+    echo " Zu"
 fi
 
 # Andere häufige MQTT-Ports
 echo -n "   Port 8883 (MQTT+TLS):     "
 if timeout 2 bash -c "echo > /dev/tcp/$WELLER_IP/8883" 2>/dev/null; then
-    echo "✅ OFFEN"
+    echo " OFFEN"
 else
-    echo "❌ Zu"
+    echo " Zu"
 fi
 
 echo ""
-echo "3️⃣  Broker-Status ($BROKER_IP):"
+echo "3️  Broker-Status ($BROKER_IP):"
 echo -n "   Port 9001 (WebSocket):    "
 if timeout 2 bash -c "echo > /dev/tcp/$BROKER_IP/9001" 2>/dev/null; then
-    echo "✅ ERREICHBAR (Broker läuft)"
+    echo " ERREICHBAR (Broker läuft)"
 else
-    echo "❌ Nicht erreichbar (Broker nicht aktiv?)"
+    echo " Nicht erreichbar (Broker nicht aktiv?)"
 fi
 
 echo ""
