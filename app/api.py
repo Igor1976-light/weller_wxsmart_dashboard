@@ -1,17 +1,47 @@
 from __future__ import annotations
 
-import io
 import csv
+import io
+import threading
 from datetime import datetime, timezone, timedelta
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 from fastapi import APIRouter, Query, HTTPException
-from fastapi.responses import StreamingResponse
+from fastapi.responses import FileResponse, StreamingResponse
 
 from .state import StateStore
 
 if TYPE_CHECKING:
     from .influx_writer import InfluxWriter
+
+# Zielverzeichnis: ~/Documents/WXSMART/
+RECORD_DIR = Path.home() / "Documents" / "WXSMART"
+
+# Aktive Aufzeichnungen pro Tool: { "Tool1": {"writer": ..., "fh": ..., "path": ..., "lock": ...} }
+_active_recordings: dict[str, dict] = {}
+_rec_lock = threading.Lock()
+
+CSV_COLUMNS = ["time", "tool", "tip_id", "tip_serial", "tool_serial",
+               "power_w", "temperature_c", "counter_time_s", "operating_hours_total"]
+
+
+def _snapshot_to_row(tool_key: str, snap: dict) -> list:
+    """Extrahiert eine CSV-Zeile aus dem aktuellen AppState-Snapshot."""
+    tool = (snap.get("tools") or {}).get(tool_key, {})
+    tip_key = tool_key.replace("Tool", "Tip")
+    tip = (snap.get("tips") or {}).get(tip_key, {})
+    return [
+        datetime.now(tz=timezone.utc).isoformat(),
+        tool_key,
+        tip.get("id") or "",
+        tip.get("serial_number") or "",
+        tool.get("serial_number") or "",
+        tool.get("power_w") if tool.get("power_w") is not None else "",
+        tool.get("temperature_c") if tool.get("temperature_c") is not None else "",
+        tool.get("counter_time") or "",
+        tool.get("operating_hours_total") or "",
+    ]
 
 
 def create_api_router(state_store: StateStore, influx_writer: "InfluxWriter | None" = None) -> APIRouter:
@@ -113,6 +143,74 @@ def create_api_router(state_store: StateStore, influx_writer: "InfluxWriter | No
             iter([output.getvalue()]),
             media_type="text/csv",
             headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+        )
+
+    # ------------------------------------------------------------------
+    # Lokaler Recorder  (speichert CSV direkt in ~/Documents/WXSMART/)
+    # ------------------------------------------------------------------
+
+    @router.post("/api/record/start")
+    def record_start(
+        tool: str = Query(default="Tool1", description="Tool1 | Tool2"),
+    ) -> dict:
+        """Startet eine Aufzeichnung für das angegebene Tool."""
+        if tool not in ("Tool1", "Tool2"):
+            raise HTTPException(status_code=422, detail="tool muss Tool1 oder Tool2 sein")
+
+        with _rec_lock:
+            if tool in _active_recordings:
+                raise HTTPException(status_code=409, detail=f"{tool} läuft bereits")
+
+            RECORD_DIR.mkdir(parents=True, exist_ok=True)
+            ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = RECORD_DIR / f"wxsmart_{tool}_{ts}.csv"
+            fh = open(filename, "w", newline="", encoding="utf-8")  # noqa: WPS515
+            writer = csv.writer(fh)
+            writer.writerow(CSV_COLUMNS)
+
+            _active_recordings[tool] = {
+                "writer": writer,
+                "fh": fh,
+                "path": filename,
+                "lock": threading.Lock(),
+            }
+
+        return {"status": "recording", "tool": tool, "filename": str(filename)}
+
+    @router.post("/api/record/stop")
+    def record_stop(
+        tool: str = Query(default="Tool1", description="Tool1 | Tool2"),
+    ) -> dict:
+        """Stoppt die laufende Aufzeichnung und schließt die CSV-Datei."""
+        with _rec_lock:
+            rec = _active_recordings.pop(tool, None)
+
+        if rec is None:
+            raise HTTPException(status_code=404, detail=f"Keine aktive Aufzeichnung für {tool}")
+
+        with rec["lock"]:
+            rec["fh"].flush()
+            rec["fh"].close()
+
+        return {"status": "stopped", "tool": tool, "filename": str(rec["path"])}
+
+    @router.get("/api/record/download")
+    def record_download(
+        file: str = Query(description="Absoluter Dateipfad der gespeicherten CSV"),
+    ) -> FileResponse:
+        """Liefert eine gespeicherte CSV-Datei zum Download."""
+        path = Path(file)
+        # Sicherheits-Check: nur Dateien innerhalb von ~/Documents/WXSMART/
+        try:
+            path.resolve().relative_to(RECORD_DIR.resolve())
+        except ValueError:
+            raise HTTPException(status_code=403, detail="Zugriff verweigert")
+        if not path.exists():
+            raise HTTPException(status_code=404, detail="Datei nicht gefunden")
+        return FileResponse(
+            path=path,
+            media_type="text/csv",
+            filename=path.name,
         )
 
     return router

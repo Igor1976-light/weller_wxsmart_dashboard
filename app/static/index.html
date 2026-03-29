@@ -182,6 +182,50 @@
         font-size: 0.95rem;
         color: var(--muted);
       }
+
+      /* ---- Record ---- */
+      .record-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 12px 0 4px;
+        flex-wrap: wrap;
+      }
+      .btn-rec {
+        border: 1px solid #c0392b;
+        background: #2c1010;
+        color: #e74c3c;
+        padding: 7px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
+        transition: background 0.15s;
+      }
+      .btn-rec:hover { background: #3d1515; }
+      .btn-rec.recording {
+        background: #e74c3c;
+        color: #fff;
+        border-color: #e74c3c;
+        animation: recpulse 1.1s ease-in-out infinite;
+      }
+      .btn-rec.recording:hover { background: #c0392b; }
+      @keyframes recpulse {
+        0%, 100% { opacity: 1; }
+        50%       { opacity: 0.65; }
+      }
+      .rec-status {
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+      .rec-status.active { color: #e74c3c; font-weight: 600; }
+      .rec-link {
+        font-size: 0.85rem;
+        color: #5dade2;
+        text-decoration: none;
+      }
+      .rec-link:hover { text-decoration: underline; }
     </style>
   </head>
   <body>
@@ -209,6 +253,11 @@
 
     <section class="card tab-pane" data-pane="tool1">
       <h2>Tool 1</h2>
+      <div class="record-bar">
+        <button class="btn-rec" id="recBtn1" onclick="toggleRecord('tool1')">&#9679; Record</button>
+        <span class="rec-status" id="recStatus1">nicht aufgezeichnet</span>
+        <a class="rec-link" id="recLink1" style="display:none" href="#" target="_blank"></a>
+      </div>
       <div class="row"><span class="k">ID</span><span id="tool1Id" class="v">-</span></div>
       <div class="row"><span class="k">Temperatur</span><span id="tool1Temp" class="v temp">-</span></div>
       <div class="chart-wrap">
@@ -229,6 +278,11 @@
 
     <section class="card tab-pane" data-pane="tool2">
       <h2>Tool 2</h2>
+      <div class="record-bar">
+        <button class="btn-rec" id="recBtn2" onclick="toggleRecord('tool2')">&#9679; Record</button>
+        <span class="rec-status" id="recStatus2">nicht aufgezeichnet</span>
+        <a class="rec-link" id="recLink2" style="display:none" href="#" target="_blank"></a>
+      </div>
       <div class="row"><span class="k">ID</span><span id="tool2Id" class="v">-</span></div>
       <div class="row"><span class="k">Temperatur</span><span id="tool2Temp" class="v temp">-</span></div>
       <div class="chart-wrap">
@@ -567,6 +621,98 @@
       }
 
       initTabs();
+
+      // ---- Recorder ----
+      const recState = {
+        tool1: { active: false, startTime: null, tickTimer: null },
+        tool2: { active: false, startTime: null, tickTimer: null },
+      };
+
+      function recToolKey(toolId) {
+        // toolId = 'tool1' | 'tool2'  →  API-Key 'Tool1' | 'Tool2'
+        return toolId.charAt(0).toUpperCase() + toolId.slice(1);
+      }
+
+      function formatDuration(ms) {
+        const s = Math.floor(ms / 1000);
+        const m = Math.floor(s / 60);
+        const h = Math.floor(m / 60);
+        if (h > 0) return `${h}h ${m % 60}m ${s % 60}s`;
+        if (m > 0) return `${m}m ${s % 60}s`;
+        return `${s}s`;
+      }
+
+      function updateRecTick(toolId) {
+        const st = recState[toolId];
+        const num = toolId === 'tool1' ? '1' : '2';
+        const statusEl = byId(`recStatus${num}`);
+        if (st.active && st.startTime) {
+          const dur = formatDuration(Date.now() - st.startTime);
+          statusEl.textContent = `● REC  ${dur}`;
+          statusEl.className = 'rec-status active';
+        }
+      }
+
+      async function toggleRecord(toolId) {
+        const st = recState[toolId];
+        const num = toolId === 'tool1' ? '1' : '2';
+        const btn = byId(`recBtn${num}`);
+        const statusEl = byId(`recStatus${num}`);
+        const linkEl = byId(`recLink${num}`);
+        const toolKey = recToolKey(toolId);
+
+        if (!st.active) {
+          // ── Start ──
+          try {
+            const resp = await fetch(`/api/record/start?tool=${toolKey}`, { method: 'POST' });
+            if (!resp.ok) {
+              const err = await resp.json().catch(() => ({}));
+              statusEl.textContent = `Fehler: ${err.detail || resp.status}`;
+              statusEl.className = 'rec-status';
+              return;
+            }
+            st.active = true;
+            st.startTime = Date.now();
+            btn.textContent = '◼ Stop';
+            btn.classList.add('recording');
+            linkEl.style.display = 'none';
+            statusEl.textContent = '● REC  0s';
+            statusEl.className = 'rec-status active';
+            st.tickTimer = setInterval(() => updateRecTick(toolId), 1000);
+          } catch (e) {
+            statusEl.textContent = `Fehler: ${e.message}`;
+          }
+        } else {
+          // ── Stop ──
+          clearInterval(st.tickTimer);
+          st.active = false;
+          btn.textContent = '● Record';
+          btn.classList.remove('recording');
+          try {
+            const resp = await fetch(`/api/record/stop?tool=${toolKey}`, { method: 'POST' });
+            if (!resp.ok) {
+              const err = await resp.json().catch(() => ({}));
+              statusEl.textContent = `Stopp-Fehler: ${err.detail || resp.status}`;
+              statusEl.className = 'rec-status';
+              return;
+            }
+            const data = await resp.json();
+            const dur = formatDuration(Date.now() - st.startTime);
+            statusEl.textContent = `Gespeichert (${dur})`;
+            statusEl.className = 'rec-status';
+            if (data.filename) {
+              linkEl.href = `/api/record/download?file=${encodeURIComponent(data.filename)}`;
+              linkEl.textContent = `↓ ${data.filename.split('/').pop()}`;
+              linkEl.style.display = 'inline';
+            }
+            st.startTime = null;
+          } catch (e) {
+            statusEl.textContent = `Fehler: ${e.message}`;
+          }
+        }
+      }
+      // ---- Ende Recorder ----
+
       connectWS();
     </script>
   </body>

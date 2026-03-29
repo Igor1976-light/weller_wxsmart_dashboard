@@ -69,15 +69,29 @@ class MqttIngestService:
         payload_text = payload_bytes.decode("utf-8", errors="replace")
         payload_value = self.parse_payload_value(payload_text)
         self.state_store.update_from_topic(msg.topic, payload_value)
-        if self.influx_writer and self.influx_writer.enabled:
-            snapshot = self.state_store.snapshot()
-            # Nur bei Power- oder Temperatur-Topics schreiben (nicht bei jedem Counter-Heartbeat)
-            topic_upper = msg.topic.upper()
-            if "POWER" in topic_upper or "TEMPERATURE" in topic_upper:
-                from .state import AppState
-                import dataclasses
+
+        topic_upper = msg.topic.upper()
+        is_data_topic = "POWER" in topic_upper or "TEMPERATURE" in topic_upper
+
+        if is_data_topic:
+            # InfluxDB schreiben
+            if self.influx_writer and self.influx_writer.enabled:
                 app_state = self.state_store._state  # noqa: SLF001
                 self.influx_writer.write_state(app_state)
+
+            # Lokale CSV-Aufzeichnung schreiben
+            from .api import _active_recordings, _snapshot_to_row
+            if _active_recordings:
+                snap = self.state_store.snapshot()
+                for tool_key, rec in list(_active_recordings.items()):
+                    # Nur in das passende Tool schreiben (oder beide wenn gewünscht)
+                    topic_tool = "TOOL1" if "TOOL1" in topic_upper else "TOOL2" if "TOOL2" in topic_upper else None
+                    if topic_tool and topic_tool != tool_key.upper():
+                        continue
+                    row = _snapshot_to_row(tool_key, snap)
+                    with rec["lock"]:
+                        rec["writer"].writerow(row)
+                        rec["fh"].flush()
 
     @staticmethod
     def parse_payload_value(payload_text: str) -> str:
