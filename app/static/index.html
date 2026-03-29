@@ -153,6 +153,35 @@
       .log-value {
         margin-top: 4px;
       }
+      .chart-wrap {
+        margin: 12px 0 8px;
+        padding: 8px;
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        background: #10182a;
+      }
+      .chart-title {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+      }
+      .temp-chart {
+        display: block;
+        width: 100%;
+        height: 120px;
+      }
+      .tip-card {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid var(--card-border);
+        border-radius: 10px;
+        background: #10182a;
+      }
+      .tip-card h3 {
+        margin: 0 0 8px;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
     </style>
   </head>
   <body>
@@ -173,26 +202,49 @@
       <div class="row"><span class="k">Online</span><span id="stationOnline" class="v">-</span></div>
       <div class="row"><span class="k">Firmware</span><span id="stationFirmware" class="v">-</span></div>
       <div class="row"><span class="k">Device Name</span><span id="stationDevice" class="v">-</span></div>
+      <div class="row"><span class="k">Leistung gesamt</span><span id="stationPowerTotal" class="v">-</span></div>
       <div class="row"><span class="k">UTC</span><span id="stationUtc" class="v mono">-</span></div>
       <div class="row"><span class="k">Aktualisiert</span><span id="stationUpdated" class="v mono">-</span></div>
     </section>
 
     <section class="card tab-pane" data-pane="tool1">
       <h2>Tool 1</h2>
+      <div class="row"><span class="k">ID</span><span id="tool1Id" class="v">-</span></div>
       <div class="row"><span class="k">Temperatur</span><span id="tool1Temp" class="v temp">-</span></div>
+      <div class="chart-wrap">
+        <div class="chart-title">Temperatur-Verlauf (letzte 120 Werte)</div>
+        <canvas id="tool1Chart" class="temp-chart"></canvas>
+      </div>
       <div class="row"><span class="k">Power</span><span id="tool1Power" class="v">-</span></div>
       <div class="row"><span class="k">Counter Time</span><span id="tool1Counter" class="v">-</span></div>
+      <div class="row"><span class="k">Operating Hours Total</span><span id="tool1OperatingHours" class="v">-</span></div>
       <div class="row"><span class="k">Serial</span><span id="tool1Serial" class="v mono">-</span></div>
-      <div class="row"><span class="k">State</span><span id="tool1State" class="v">-</span></div>
+      <div class="row"><span class="k">Firmware</span><span id="tool1Firmware" class="v">-</span></div>
+      <div class="tip-card">
+        <h3>Tip1</h3>
+        <div class="row"><span class="k">ID</span><span id="tip1Id" class="v">-</span></div>
+        <div class="row"><span class="k">Serial</span><span id="tip1Serial" class="v mono">-</span></div>
+      </div>
     </section>
 
     <section class="card tab-pane" data-pane="tool2">
       <h2>Tool 2</h2>
+      <div class="row"><span class="k">ID</span><span id="tool2Id" class="v">-</span></div>
       <div class="row"><span class="k">Temperatur</span><span id="tool2Temp" class="v temp">-</span></div>
+      <div class="chart-wrap">
+        <div class="chart-title">Temperatur-Verlauf (letzte 120 Werte)</div>
+        <canvas id="tool2Chart" class="temp-chart"></canvas>
+      </div>
       <div class="row"><span class="k">Power</span><span id="tool2Power" class="v">-</span></div>
       <div class="row"><span class="k">Counter Time</span><span id="tool2Counter" class="v">-</span></div>
+      <div class="row"><span class="k">Operating Hours Total</span><span id="tool2OperatingHours" class="v">-</span></div>
       <div class="row"><span class="k">Serial</span><span id="tool2Serial" class="v mono">-</span></div>
-      <div class="row"><span class="k">State</span><span id="tool2State" class="v">-</span></div>
+      <div class="row"><span class="k">Firmware</span><span id="tool2Firmware" class="v">-</span></div>
+      <div class="tip-card">
+        <h3>Tip2</h3>
+        <div class="row"><span class="k">ID</span><span id="tip2Id" class="v">-</span></div>
+        <div class="row"><span class="k">Serial</span><span id="tip2Serial" class="v mono">-</span></div>
+      </div>
     </section>
 
     <section class="card tab-pane" data-pane="log">
@@ -204,6 +256,11 @@
     <script>
       const byId = (id) => document.getElementById(id);
       const logItems = [];
+      const tempHistory = {
+        tool1: [],
+        tool2: [],
+      };
+      const MAX_TEMP_POINTS = 120;
 
       const toText = (value, fallback = "-") => {
         if (value === null || value === undefined || value === "") return fallback;
@@ -296,24 +353,153 @@
         renderLog();
       }
 
+      function pushTempPoint(toolKey, value) {
+        if (typeof value !== "number" || Number.isNaN(value)) {
+          return;
+        }
+        const history = tempHistory[toolKey];
+        history.push(value);
+        if (history.length > MAX_TEMP_POINTS) {
+          history.shift();
+        }
+      }
+
+      function drawTempChart(canvasId, history) {
+        const canvas = byId(canvasId);
+        if (!canvas) {
+          return;
+        }
+
+        const cssWidth = Math.max(canvas.clientWidth, 280);
+        const cssHeight = 120;
+        if (canvas.width !== cssWidth || canvas.height !== cssHeight) {
+          canvas.width = cssWidth;
+          canvas.height = cssHeight;
+        }
+
+        const context = canvas.getContext("2d");
+        if (!context) {
+          return;
+        }
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        const paddingLeft = 38;
+        const paddingRight = 38;
+        const paddingTop = 8;
+        const paddingBottom = 12;
+        const plotLeft = paddingLeft;
+        const plotTop = paddingTop;
+        const plotWidth = Math.max(canvas.width - paddingLeft - paddingRight, 40);
+        const plotHeight = Math.max(canvas.height - paddingTop - paddingBottom, 20);
+        const plotBottom = plotTop + plotHeight;
+
+        if (history.length < 1) {
+          return;
+        }
+
+        let minTemp = Math.min(...history);
+        let maxTemp = Math.max(...history);
+        if (minTemp === maxTemp) {
+          minTemp -= 0.5;
+          maxTemp += 0.5;
+        }
+        const tempRange = maxTemp - minTemp;
+
+        const toY = (value) => {
+          const normalized = (value - minTemp) / tempRange;
+          return plotBottom - normalized * plotHeight;
+        };
+
+        context.strokeStyle = "#253252";
+        context.lineWidth = 1;
+        context.fillStyle = "#96a7c3";
+        context.font = "11px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
+        context.textBaseline = "middle";
+
+        const tickCount = 4;
+        for (let i = 0; i <= tickCount; i += 1) {
+          const ratio = i / tickCount;
+          const y = plotTop + ratio * plotHeight;
+          const tickTemp = maxTemp - ratio * tempRange;
+
+          context.beginPath();
+          context.moveTo(plotLeft, y);
+          context.lineTo(plotLeft + plotWidth, y);
+          context.stroke();
+
+          const label = `${tickTemp.toFixed(0)}°C`;
+          context.textAlign = "right";
+          context.fillText(label, plotLeft - 6, y);
+          context.textAlign = "left";
+          context.fillText(label, plotLeft + plotWidth + 6, y);
+        }
+
+        context.strokeStyle = "#2b3b5e";
+        context.beginPath();
+        context.moveTo(plotLeft, plotTop);
+        context.lineTo(plotLeft, plotBottom);
+        context.lineTo(plotLeft + plotWidth, plotBottom);
+        context.lineTo(plotLeft + plotWidth, plotTop);
+        context.stroke();
+
+        if (history.length < 2) {
+          return;
+        }
+
+        context.strokeStyle = "#2ecc71";
+        context.lineWidth = 2;
+        context.beginPath();
+
+        history.forEach((value, index) => {
+          const x = plotLeft + (index / (history.length - 1)) * plotWidth;
+          const y = toY(value);
+          if (index === 0) {
+            context.moveTo(x, y);
+          } else {
+            context.lineTo(x, y);
+          }
+        });
+
+        context.stroke();
+      }
+
       function renderTool(prefix, tool) {
         const temp = tool?.temperature_c;
+        byId(`${prefix}Id`).textContent = toText(tool?.id);
         byId(`${prefix}Temp`).textContent = temp === null || temp === undefined ? "-" : `${temp.toFixed(1)} °C`;
         byId(`${prefix}Power`).textContent = tool?.power_w === null || tool?.power_w === undefined ? "-" : `${tool.power_w} W`;
         byId(`${prefix}Counter`).textContent = toText(tool?.counter_time);
+        byId(`${prefix}OperatingHours`).textContent = toText(tool?.operating_hours_total);
         byId(`${prefix}Serial`).textContent = toText(tool?.serial_number);
-        byId(`${prefix}State`).textContent = toText(tool?.state);
+        byId(`${prefix}Firmware`).textContent = toText(tool?.firmware_version);
+
+        if (prefix === "tool1") {
+          pushTempPoint("tool1", temp);
+          drawTempChart("tool1Chart", tempHistory.tool1);
+        } else if (prefix === "tool2") {
+          pushTempPoint("tool2", temp);
+          drawTempChart("tool2Chart", tempHistory.tool2);
+        }
       }
 
       function renderState(data) {
         const station = data.station || {};
         const tools = data.tools || {};
+        const tips = data.tips || {};
 
         byId("stationOnline").textContent = toText(station.online);
         byId("stationFirmware").textContent = toText(station.firmware);
         byId("stationDevice").textContent = toText(station.device_name);
+        const totalPower = [tools?.Tool1?.power_w, tools?.Tool2?.power_w]
+          .filter((value) => typeof value === "number" && !Number.isNaN(value))
+          .reduce((sum, value) => sum + value, 0);
+        byId("stationPowerTotal").textContent = totalPower > 0 ? `${totalPower.toFixed(1)} W` : "-";
         byId("stationUtc").textContent = toText(station.utc);
         byId("stationUpdated").textContent = toText(station.updated_at);
+        byId("tip1Id").textContent = toText(tips?.Tip1?.id);
+        byId("tip1Serial").textContent = toText(tips?.Tip1?.serial_number);
+        byId("tip2Id").textContent = toText(tips?.Tip2?.id);
+        byId("tip2Serial").textContent = toText(tips?.Tip2?.serial_number);
 
         renderTool("tool1", tools.Tool1 || {});
         renderTool("tool2", tools.Tool2 || {});

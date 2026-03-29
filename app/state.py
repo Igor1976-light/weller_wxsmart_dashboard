@@ -2,12 +2,14 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
+import re
 import threading
 from typing import Any
 
 
 @dataclass
 class ToolState:
+    id: str | None = None
     temperature_raw: str | None = None
     temperature_c: float | None = None
     power_raw: str | None = None
@@ -17,8 +19,10 @@ class ToolState:
     standby_updated_at: str | None = None
     counter_time: str | None = None
     counter_updated_at: str | None = None  # nur beim Counter/Time-Topic gesetzt – Heartbeat
+    operating_hours_total: str | None = None
     serial_number: str | None = None
-    state: str | None = None
+    firmware_version: str | None = None
+    mode: str | None = None
     updated_at: str | None = None
 
 
@@ -32,10 +36,28 @@ class StationState:
 
 
 @dataclass
+class TipState:
+    id: str | None = None
+    serial_number: str | None = None
+    wattage_raw: str | None = None
+    wattage_w: float | None = None
+    temperature_raw: str | None = None
+    temperature_c: float | None = None
+    temperature_offset_raw: str | None = None
+    temperature_offset_c: float | None = None
+    energy_raw: str | None = None
+    energy_consumption: float | None = None
+    updated_at: str | None = None
+
+
+@dataclass
 class AppState:
     station: StationState = field(default_factory=StationState)
     tools: dict[str, ToolState] = field(
         default_factory=lambda: {"Tool1": ToolState(), "Tool2": ToolState()}
+    )
+    tips: dict[str, TipState] = field(
+        default_factory=lambda: {"Tip1": TipState(), "Tip2": TipState()}
     )
     last_topic: str | None = None
     last_payload: str | None = None
@@ -49,6 +71,22 @@ class StateStore:
 
     def _now(self) -> str:
         return datetime.now().isoformat(timespec="seconds")
+
+    def _parse_number(self, payload_value: str) -> float | None:
+        cleaned = payload_value.strip().replace(",", ".")
+        match = re.search(r"[-+]?\d+(?:\.\d+)?", cleaned)
+        if not match:
+            return None
+        try:
+            return float(match.group(0))
+        except ValueError:
+            return None
+
+    def _parse_deci_value(self, payload_value: str) -> float | None:
+        numeric = self._parse_number(payload_value)
+        if numeric is None:
+            return None
+        return numeric / 10.0
 
     def update_from_topic(self, topic: str, payload_value: str) -> None:
         with self._lock:
@@ -80,24 +118,45 @@ class StateStore:
                 self._state.station.updated_at = self._now()
                 return
 
+            tip_name = "Tip1" if "/STATUS/Tip1/" in topic else "Tip2" if "/STATUS/Tip2/" in topic else None
+            if tip_name is not None:
+                tip = self._state.tips[tip_name]
+                if topic.endswith("/ID"):
+                    tip.id = payload_value
+                elif topic.endswith("/SerialNumber"):
+                    tip.serial_number = payload_value
+                elif topic.endswith("/Wattage"):
+                    tip.wattage_raw = payload_value
+                    tip.wattage_w = self._parse_number(payload_value)
+                elif "/Temperature/Read" in topic:
+                    tip.temperature_raw = payload_value
+                    tip.temperature_c = self._parse_deci_value(payload_value)
+                elif "/Temperature/Offset" in topic:
+                    tip.temperature_offset_raw = payload_value
+                    tip.temperature_offset_c = self._parse_deci_value(payload_value)
+                elif "/Energy/Consumption" in topic:
+                    tip.energy_raw = payload_value
+                    tip.energy_consumption = self._parse_number(payload_value)
+                tip.updated_at = self._now()
+                return
+
             tool_name = "Tool1" if "/STATUS/Tool1/" in topic else "Tool2" if "/STATUS/Tool2/" in topic else None
             if tool_name is None:
                 return
 
             tool = self._state.tools[tool_name]
-            if "/Temperature/Read" in topic:
+            if topic.endswith("/ID"):
+                tool.id = payload_value
+            elif "/Temperature/Read" in topic:
                 tool.temperature_raw = payload_value
-                if payload_value.isdigit():
-                    tool.temperature_c = int(payload_value) / 10.0
+                tool.temperature_c = self._parse_deci_value(payload_value)
             elif "/Power/Read" in topic:
                 tool.power_raw = payload_value
-                if payload_value.isdigit():
-                    tool.power_w = int(payload_value) / 10.0
+                tool.power_w = self._parse_deci_value(payload_value)
                 tool.power_updated_at = self._now()
             elif "/Power" in topic:
                 tool.power_raw = payload_value
-                if payload_value.isdigit():
-                    tool.power_w = float(payload_value)
+                tool.power_w = self._parse_number(payload_value)
                 tool.power_updated_at = self._now()
             elif "/OperatingHours/Standby" in topic:
                 tool.standby_raw = payload_value
@@ -105,10 +164,16 @@ class StateStore:
             elif "/Counter/Time" in topic:
                 tool.counter_time = payload_value
                 tool.counter_updated_at = self._now()
+            elif "/OperatingHours/Total" in topic:
+                tool.operating_hours_total = payload_value
             elif "/SerialNumber" in topic:
                 tool.serial_number = payload_value
+            elif "/Version/Firmware" in topic:
+                tool.firmware_version = payload_value
+            elif "/Status/Mode" in topic:
+                tool.mode = payload_value
             elif topic.endswith("/State"):
-                tool.state = payload_value
+                tool.mode = payload_value
 
             tool.updated_at = self._now()
 
